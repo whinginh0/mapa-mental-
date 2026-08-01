@@ -277,7 +277,7 @@ const initPage = () => {
           fadeObserver.unobserve(entry.target);
         }
       });
-    }, { root: null, threshold: 0.12 });
+    }, { root: null, threshold: 0, rootMargin: "0px 0px -50px 0px" });
 
     fadeElements.forEach(el => fadeObserver.observe(el));
 
