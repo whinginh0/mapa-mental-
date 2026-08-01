@@ -177,13 +177,13 @@ const initPage = () => {
 
     const passUtmParams = () => {
       try {
-        const currentQueryParams = window.location.search;
-        if (!currentQueryParams) return;
+        const search = window.location.search;
+        if (!search) return;
 
-        const urlParams = new URLSearchParams(currentQueryParams);
+        const urlParams = new URLSearchParams(search);
 
         document.querySelectorAll("a").forEach(a => {
-          const href = a.getAttribute("href");
+          let href = a.getAttribute("href");
           if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
             try {
               const targetUrl = new URL(href);
