@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Certificado | +100 Mapas Mentais de Saúde Capilar</title>
+  <meta name="description" content="Gere seu certificado de conclusão do material +100 Mapas Mentais Ilustrados para Saúde Capilar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul: #132644;
+      --azul-medio: #1D3A66;
+      --rosa: #D9536F;
+      --branco: #FFFFFF;
+      --fundo: #F0F4FA;
+      --cinza: #64748B;
+      --borda: #CBD5E1;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--fundo);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 48px;
+    }
+
+    /* HEADER */
+    .page-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--azul);
+      color: var(--branco);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .logo-dot {
+      width: 6px; height: 6px;
+      background: var(--rosa);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--azul);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .page-subtitle {
+      color: var(--cinza);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* CARD PRINCIPAL */
+    .card {
+      background: var(--branco);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(19, 38, 68, 0.1);
+      width: 100%;
+      max-width: 700px;
+      overflow: hidden;
+    }
+
+    /* FORMULÁRIO */
+    .form-section {
+      padding: 28px 28px 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cinza);
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 52px;
+      padding: 0 16px 0 44px;
+      border: 2px solid var(--borda);
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--azul);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #F8FAFC;
+    }
+
+    .form-input:focus {
+      border-color: var(--azul-medio);
+      box-shadow: 0 0 0 3px rgba(29, 58, 102, 0.1);
+      background: var(--branco);
+    }
+
+    .form-input::placeholder {
+      color: #94A3B8;
+      font-weight: 500;
+    }
+
+    /* BOTÃO GERAR */
+    .btn-gerar {
+      width: 100%;
+      height: 56px;
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+      color: var(--branco);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 20px rgba(19, 38, 68, 0.25);
+      margin-bottom: 28px;
+    }
+
+    .btn-gerar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(19, 38, 68, 0.3);
+    }
+
+    .btn-gerar:active {
+      transform: translateY(0);
+    }
+
+    /* PREVIEW DO CERTIFICADO */
+    .preview-section {
+      padding: 0 28px 28px;
+      display: none;
+    }
+
+    .preview-section.visible {
+      display: block;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--borda);
+      margin-bottom: 24px;
+    }
+
+    .preview-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cinza);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .canvas-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(19, 38, 68, 0.12);
+      margin-bottom: 20px;
+      background: #f5f0e8;
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* BOTÃO DOWNLOAD */
+    .btn-download {
+      width: 100%;
+      height: 52px;
+      background: linear-gradient(135deg, var(--rosa) 0%, #C0425E 100%);
+      color: var(--branco);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 20px rgba(217, 83, 111, 0.3);
+      text-decoration: none;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(217, 83, 111, 0.4);
+    }
+
+    /* LOADING STATE */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 38, 68, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      color: var(--branco);
+      font-weight: 700;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: var(--branco);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* FOOTER */
+    .page-footer {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      color: #94A3B8;
+      text-align: center;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 480px) {
+      .page-title { font-size: 1.6rem; }
+      .form-section { padding: 20px 18px 0; }
+      .preview-section { padding: 0 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <span>Gerando seu certificado…</span>
+  </div>
+
+  <header class="page-header">
+    <div class="logo-badge">
+      <span class="logo-dot"></span>
+      Saúde Capilar
+    </div>
+    <h1 class="page-title">Seu Certificado de Conclusão</h1>
+    <p class="page-subtitle">Digite seu nome completo e baixe o certificado personalizado</p>
+  </header>
+
+  <div class="card">
+    <div class="form-section">
+      <label class="form-label" for="nome-input">
+        Seu nome completo
+      </label>
+      <div class="input-wrapper">
+        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <input
+          type="text"
+          id="nome-input"
+          class="form-input"
+          placeholder="Ex: Maria da Silva Santos"
+          maxlength="60"
+          autocomplete="name"
+        >
+      </div>
+
+      <button class="btn-gerar" id="btn-gerar" onclick="gerarCertificado()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Gerar Certificado
+      </button>
+    </div>
+
+    <div class="preview-section" id="preview-section">
+      <hr class="divider">
+      <p class="preview-label">✨ Seu certificado está pronto</p>
+      <div class="canvas-wrapper">
+        <canvas id="cert-canvas"></canvas>
+      </div>
+      <a class="btn-download" id="btn-download" href="#" download="certificado-saude-capilar.png">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Baixar Certificado (PNG)
+      </a>
+    </div>
+  </div>
+
+  <p class="page-footer">+100 Mapas Mentais Ilustrados para Saúde Capilar &nbsp;•&nbsp; Certificado Digital</p>
+
+  <script>
+    const CERT_IMAGE_URL = 'https://i.ibb.co/cXwCZBDd/image.png';
+
+    function formatDate(date) {
+      const d = date.getDate().toString().padStart(2, '0');
+      const m = (date.getMonth() + 1).toString().padStart(2, '0');
+      const y = date.getFullYear().toString();
+      return { d, m, y };
+    }
+
+    function gerarCertificado() {
+      const nome = document.getElementById('nome-input').value.trim();
+      if (!nome) {
+        document.getElementById('nome-input').focus();
+        document.getElementById('nome-input').style.borderColor = '#D9536F';
+        setTimeout(() => document.getElementById('nome-input').style.borderColor = '', 1500);
+        return;
+      }
+
+      document.getElementById('loading').classList.add('active');
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function () {
+        const canvas = document.getElementById('cert-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas dimensions to match image
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+
+        const W = canvas.width;
+        const H = canvas.height;
+
+        // Draw certificate background
+        ctx.drawImage(img, 0, 0);
+
+        // ─── NOME ────────────────────────────────────────────────
+        const nomeFontSize = Math.round(W * 0.042);
+        ctx.font = `700 ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
+        ctx.fillStyle = '#132644';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Nome vai sobre a linha abaixo de "Certificamos que"
+        // Posição aproximada: 50% horizontal, 46% vertical
+        ctx.fillText(nome, W * 0.50, H * 0.455);
+
+        // ─── DATA ─────────────────────────────────────────────────
+        const { d, m, y } = formatDate(new Date());
+
+        const dateFontSize = Math.round(W * 0.024);
+        ctx.font = `600 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
+        ctx.fillStyle = '#1D3A66';
+        ctx.textAlign = 'left';
+
+        // Posições aproximadas dos campos dia / mês / ano
+        // Ajustados para se encaixar na linha do certificado
+        const dateY   = H * 0.726;
+        const dayX    = W * 0.352;
+        const monthX  = W * 0.436;
+        const yearX   = W * 0.528;
+
+        ctx.fillText(d, dayX, dateY);
+        ctx.fillText(m, monthX, dateY);
+        ctx.fillText(y, yearX, dateY);
+
+        // ─── EXPORTAR ─────────────────────────────────────────────
+        const dataURL = canvas.toDataURL('image/png');
+        const link = document.getElementById('btn-download');
+        link.href = dataURL;
+
+        // Mostrar preview
+        document.getElementById('preview-section').classList.add('visible');
+        document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('loading').classList.remove('active');
+      };
+
+      img.onerror = function () {
+        document.getElementById('loading').classList.remove('active');
+        alert('Não foi possível carregar a imagem do certificado. Verifique sua conexão e tente novamente.');
+      };
+
+      img.src = CERT_IMAGE_URL + '?t=' + Date.now();
+    }
+
+    // Enter key trigger
+    document.getElementById('nome-input').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') gerarCertificado();
+    });
+  </script>
+</body>
+</html>
