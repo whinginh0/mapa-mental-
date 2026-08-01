@@ -83,13 +83,13 @@
       border-radius: 20px;
       box-shadow: 0 8px 40px rgba(19, 38, 68, 0.1);
       width: 100%;
-      max-width: 700px;
+      max-width: 650px;
       overflow: hidden;
     }
 
     /* FORMULÁRIO */
     .form-section {
-      padding: 28px 28px 0;
+      padding: 32px 28px;
     }
 
     .form-label {
@@ -137,9 +137,10 @@
       background: var(--branco);
     }
 
-    .form-input::placeholder {
-      color: #94A3B8;
-      font-weight: 500;
+    .form-input:disabled {
+      background: #E2E8F0;
+      color: #64748B;
+      cursor: not-allowed;
     }
 
     /* BOTÃO GERAR */
@@ -161,7 +162,6 @@
       gap: 10px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 6px 20px rgba(19, 38, 68, 0.25);
-      margin-bottom: 28px;
     }
 
     .btn-gerar:hover {
@@ -169,43 +169,82 @@
       box-shadow: 0 10px 28px rgba(19, 38, 68, 0.3);
     }
 
-    .btn-gerar:active {
-      transform: translateY(0);
+    .btn-gerar:disabled {
+      background: #94A3B8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
-    /* PREVIEW DO CERTIFICADO */
-    .preview-section {
-      padding: 0 28px 28px;
+    /* AVISO DE EMISSÃO ÚNICA */
+    .issued-warning {
       display: none;
-    }
-
-    .preview-section.visible {
-      display: block;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--borda);
-      margin-bottom: 24px;
-    }
-
-    .preview-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--cinza);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 12px;
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
       text-align: center;
+      line-height: 1.4;
+    }
+
+    /* MODAL DO CERTIFICADO */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-container {
+      background: var(--branco);
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation: modalAnim 0.3s ease-out;
+    }
+
+    @keyframes modalAnim {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--azul);
     }
 
     .canvas-wrapper {
       width: 100%;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(19, 38, 68, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
-      background: #f5f0e8;
+      background: #FAF7F2;
     }
 
     canvas {
@@ -214,10 +253,14 @@
       display: block;
     }
 
-    /* BOTÃO DOWNLOAD */
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
     .btn-download {
-      width: 100%;
-      height: 52px;
+      height: 50px;
       background: linear-gradient(135deg, var(--rosa) 0%, #C0425E 100%);
       color: var(--branco);
       border: none;
@@ -225,56 +268,51 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.95rem;
       font-weight: 800;
-      letter-spacing: 0.3px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 6px 20px rgba(217, 83, 111, 0.3);
+      gap: 8px;
       text-decoration: none;
+      box-shadow: 0 4px 14px rgba(217, 83, 111, 0.3);
+      transition: transform 0.2s ease;
     }
 
     .btn-download:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(217, 83, 111, 0.4);
     }
 
-    /* BOTÃO IMPRIMIR */
     .btn-print {
-      width: 100%;
-      height: 48px;
+      height: 50px;
       background: transparent;
       color: var(--azul);
       border: 2px solid var(--azul);
       border-radius: 12px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       transition: all 0.2s ease;
-      margin-top: 12px;
     }
 
     .btn-print:hover {
       background: var(--azul);
       color: var(--branco);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
-    /* LOADING STATE */
+    /* LOADING OVERLAY */
     .loading-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(19, 38, 68, 0.6);
+      background: rgba(19, 38, 68, 0.7);
       backdrop-filter: blur(4px);
-      z-index: 1000;
+      z-index: 10000;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -296,11 +334,8 @@
       animation: spin 0.8s linear infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* FOOTER */
     .page-footer {
       margin-top: 24px;
       font-size: 0.75rem;
@@ -308,15 +343,31 @@
       text-align: center;
     }
 
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .modal-actions { grid-template-columns: 1fr; }
       .page-title { font-size: 1.6rem; }
-      .form-section { padding: 20px 18px 0; }
-      .preview-section { padding: 0 18px 20px; }
+      .form-section { padding: 24px 18px; }
+    }
+
+    /* ESTILO EXCLUSIVO DE IMPRESSÃO */
+    @media print {
+      body * { visibility: hidden !important; }
+      #print-image, #print-image * { visibility: visible !important; }
+      #print-image {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: contain !important;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Imagem oculta para impressão limpa sem popup -->
+  <img id="print-image" style="display:none;" />
 
   <div class="loading-overlay" id="loading">
     <div class="spinner"></div>
@@ -329,11 +380,16 @@
       Saúde Capilar
     </div>
     <h1 class="page-title">Seu Certificado de Conclusão</h1>
-    <p class="page-subtitle">Digite seu nome completo e baixe o certificado personalizado</p>
+    <p class="page-subtitle">Digite seu nome completo para emitir seu certificado digital</p>
   </header>
 
   <div class="card">
     <div class="form-section">
+      
+      <div class="issued-warning" id="issued-warning">
+        🔒 <strong>Certificado já gerado!</strong> Você já emitiu o seu certificado neste dispositivo. Abaixo você pode visualizar novamente ou baixar a sua via.
+      </div>
+
       <label class="form-label" for="nome-input">
         Seu nome completo
       </label>
@@ -362,34 +418,42 @@
           <line x1="16" y1="17" x2="8" y2="17"/>
           <polyline points="10 9 9 9 8 9"/>
         </svg>
-        Gerar Certificado
+        <span id="btn-gerar-text">Gerar Certificado</span>
       </button>
     </div>
+  </div>
 
-    <div class="preview-section" id="preview-section">
-      <hr class="divider">
-      <p class="preview-label">✨ Seu certificado está pronto</p>
+  <!-- MODAL COM O CERTIFICADO -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">✨ Certificado Gerado com Sucesso</h3>
+      </div>
+      
       <div class="canvas-wrapper">
         <canvas id="cert-canvas"></canvas>
       </div>
-      <a class="btn-download" id="btn-download" href="#" download="certificado-saude-capilar.png">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Baixar Certificado (PNG)
-      </a>
-      <button class="btn-print" onclick="imprimirCertificado()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 6 2 18 2 18 9"/>
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
-          <rect x="6" y="14" width="12" height="8"/>
-        </svg>
-        Imprimir Certificado
-      </button>
+
+      <div class="modal-actions">
+        <a class="btn-download" id="btn-download" href="#" download="certificado-saude-capilar.png">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Baixar Imagem PNG
+        </a>
+        <button class="btn-print" onclick="imprimirCertificado()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          Imprimir Certificado
+        </button>
+      </div>
     </div>
   </div>
 
@@ -397,10 +461,7 @@
 
   <script>
     const CERT_IMAGE_URL = 'https://i.ibb.co/cXwCZBDd/image.png';
-
-    // Dimensões reais da imagem: 1491 x 1055 px
-    const IMG_W = 1491;
-    const IMG_H = 1055;
+    const STORAGE_KEY = 'saude_capilar_certificado_emitido';
 
     function formatDate(date) {
       const d = date.getDate().toString().padStart(2, '0');
@@ -409,12 +470,30 @@
       return { d, m, y };
     }
 
+    // Checar emissão prévia ao carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const savedCert = localStorage.getItem(STORAGE_KEY);
+        if (savedCert) {
+          const data = JSON.parse(savedCert);
+          document.getElementById('nome-input').value = data.nome;
+          document.getElementById('nome-input').disabled = true;
+          document.getElementById('issued-warning').style.display = 'block';
+          
+          const btn = document.getElementById('btn-gerar');
+          document.getElementById('btn-gerar-text').textContent = 'Visualizar Meu Certificado';
+        }
+      } catch(e) {}
+    });
+
     function gerarCertificado() {
-      const nome = document.getElementById('nome-input').value.trim();
+      const nomeInput = document.getElementById('nome-input');
+      const nome = nomeInput.value.trim();
+
       if (!nome) {
-        document.getElementById('nome-input').focus();
-        document.getElementById('nome-input').style.borderColor = '#D9536F';
-        setTimeout(() => document.getElementById('nome-input').style.borderColor = '', 1500);
+        nomeInput.focus();
+        nomeInput.style.borderColor = '#D9536F';
+        setTimeout(() => nomeInput.style.borderColor = '', 1500);
         return;
       }
 
@@ -426,89 +505,93 @@
         const canvas = document.getElementById('cert-canvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width  = IMG_W;
-        canvas.height = IMG_H;
+        // Definindo dimensões exatas do template
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
 
-        // Desenha o certificado template
-        ctx.drawImage(img, 0, 0, IMG_W, IMG_H);
+        const W = canvas.width;
+        const H = canvas.height;
 
-        // ─── NOME ────────────────────────────────────────────────
-        // Centralizado horizontalmente em X=746, Y=475
-        const nomeFontSize = 52;
-        ctx.font = `700 ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
+        // Desenhar a imagem de fundo
+        ctx.drawImage(img, 0, 0);
+
+        // --- NOME CENTRALIZADO ---
+        // Coordenadas calculadas: 50% horizontal, 44.5% vertical (logo acima de "concluiu com êxito")
+        const nomeFontSize = Math.round(H * 0.046);
+        ctx.font = `bold ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(nome, 746, 475);
+        
+        ctx.fillText(nome, W * 0.50, H * 0.445);
 
-        // ─── DATA ─────────────────────────────────────────────────
-        const { d, m, y } = formatDate(new Date());
-        const dateFontSize = 28;
-        ctx.font = `700 ${dateFontSize}px 'Plus Jakarta Sans', Arial, sans-serif`;
+        // --- DATA ---
+        // Coordenadas calculadas para as lacunas: dia (38.8%), mês (49.8%), ano (59.2%), altura (75.8%)
+        let dataObj = new Date();
+        
+        // Se já tiver data gravada no localStorage, mantém a mesma data da 1ª emissão
+        try {
+          const savedCert = localStorage.getItem(STORAGE_KEY);
+          if (savedCert) {
+            const data = JSON.parse(savedCert);
+            if (data.timestamp) dataObj = new Date(data.timestamp);
+          }
+        } catch(e) {}
+
+        const { d, m, y } = formatDate(dataObj);
+        const dateFontSize = Math.round(H * 0.026);
+        ctx.font = `600 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        // Dia / Mês / Ano posicionados sobre as linhas do template
-        ctx.fillText(d, 638, 810);
-        ctx.fillText(m, 752, 810);
-        ctx.fillText(y, 866, 810);
+        const dateY = H * 0.758;
+        ctx.fillText(d, W * 0.388, dateY);
+        ctx.fillText(m, W * 0.498, dateY);
+        ctx.fillText(y, W * 0.592, dateY);
 
-        // ─── EXPORTAR ─────────────────────────────────────────────
+        // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
-        const link = document.getElementById('btn-download');
-        link.href = dataURL;
+        document.getElementById('btn-download').href = dataURL;
+        document.getElementById('print-image').src = dataURL;
 
-        // Guardar para impressão
-        canvas._dataURL = dataURL;
+        // Salvar bloqueio de emissão única no LocalStorage
+        try {
+          if (!localStorage.getItem(STORAGE_KEY)) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+              nome: nome,
+              timestamp: Date.now()
+            }));
+            nomeInput.disabled = true;
+            document.getElementById('issued-warning').style.display = 'block';
+            document.getElementById('btn-gerar-text').textContent = 'Visualizar Meu Certificado';
+          }
+        } catch(e) {}
 
-        // Mostrar preview
-        document.getElementById('preview-section').classList.add('visible');
-        document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Abrir Modal
         document.getElementById('loading').classList.remove('active');
+        document.getElementById('modal-backdrop').classList.add('active');
       };
 
       img.onerror = function () {
         document.getElementById('loading').classList.remove('active');
-        alert('Não foi possível carregar o certificado. Verifique sua conexão e tente novamente.');
+        alert('Erro ao carregar o modelo do certificado. Tente novamente.');
       };
 
-      img.src = CERT_IMAGE_URL + '?t=' + Date.now();
+      img.src = CERT_IMAGE_URL + '?v=' + Date.now();
     }
 
     function imprimirCertificado() {
-      const canvas = document.getElementById('cert-canvas');
-      const dataURL = canvas.toDataURL('image/png');
-      const win = window.open('', '_blank');
-      win.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Certificado de Conclusão</title>
-          <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { background: white; }
-            img { width: 100%; height: auto; display: block; }
-            @media print {
-              body { margin: 0; }
-              img { width: 100vw; max-height: 100vh; object-fit: contain; }
-            }
-          </style>
-        </head>
-        <body>
-          <img src="${dataURL}">
-          <script>
-            window.onload = function() {
-              setTimeout(function() { window.print(); }, 300);
-            };
-          <\/script>
-        </body>
-        </html>
-      `);
-      win.document.close();
+      window.print();
     }
 
-    // Enter key trigger
+    // Fechar modal ao clicar fora do container
+    document.getElementById('modal-backdrop').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('modal-backdrop')) {
+        document.getElementById('modal-backdrop').classList.remove('active');
+      }
+    });
+
     document.getElementById('nome-input').addEventListener('keydown', function (e) {
       if (e.key === 'Enter') gerarCertificado();
     });
