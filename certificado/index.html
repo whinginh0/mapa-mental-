@@ -241,6 +241,32 @@
       box-shadow: 0 10px 28px rgba(217, 83, 111, 0.4);
     }
 
+    /* BOTÃO IMPRIMIR */
+    .btn-print {
+      width: 100%;
+      height: 48px;
+      background: transparent;
+      color: var(--azul);
+      border: 2px solid var(--azul);
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 12px;
+    }
+
+    .btn-print:hover {
+      background: var(--azul);
+      color: var(--branco);
+      transform: translateY(-1px);
+    }
+
     /* LOADING STATE */
     .loading-overlay {
       display: none;
@@ -355,6 +381,15 @@
         </svg>
         Baixar Certificado (PNG)
       </a>
+      <button class="btn-print" onclick="imprimirCertificado()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Imprimir Certificado
+      </button>
     </div>
   </div>
 
@@ -362,6 +397,10 @@
 
   <script>
     const CERT_IMAGE_URL = 'https://i.ibb.co/cXwCZBDd/image.png';
+
+    // Dimensões reais da imagem: 1491 x 1055 px
+    const IMG_W = 1491;
+    const IMG_H = 1055;
 
     function formatDate(date) {
       const d = date.getDate().toString().padStart(2, '0');
@@ -387,50 +426,41 @@
         const canvas = document.getElementById('cert-canvas');
         const ctx = canvas.getContext('2d');
 
-        // Set canvas dimensions to match image
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
+        canvas.width  = IMG_W;
+        canvas.height = IMG_H;
 
-        const W = canvas.width;
-        const H = canvas.height;
-
-        // Draw certificate background
-        ctx.drawImage(img, 0, 0);
+        // Desenha o certificado template
+        ctx.drawImage(img, 0, 0, IMG_W, IMG_H);
 
         // ─── NOME ────────────────────────────────────────────────
-        const nomeFontSize = Math.round(W * 0.042);
+        // Centralizado horizontalmente em X=746, Y=475
+        const nomeFontSize = 52;
         ctx.font = `700 ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-
-        // Nome vai sobre a linha abaixo de "Certificamos que"
-        // Posição aproximada: 50% horizontal, 46% vertical
-        ctx.fillText(nome, W * 0.50, H * 0.455);
+        ctx.fillText(nome, 746, 475);
 
         // ─── DATA ─────────────────────────────────────────────────
         const { d, m, y } = formatDate(new Date());
+        const dateFontSize = 28;
+        ctx.font = `700 ${dateFontSize}px 'Plus Jakarta Sans', Arial, sans-serif`;
+        ctx.fillStyle = '#132644';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
 
-        const dateFontSize = Math.round(W * 0.024);
-        ctx.font = `600 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
-        ctx.fillStyle = '#1D3A66';
-        ctx.textAlign = 'left';
-
-        // Posições aproximadas dos campos dia / mês / ano
-        // Ajustados para se encaixar na linha do certificado
-        const dateY   = H * 0.726;
-        const dayX    = W * 0.352;
-        const monthX  = W * 0.436;
-        const yearX   = W * 0.528;
-
-        ctx.fillText(d, dayX, dateY);
-        ctx.fillText(m, monthX, dateY);
-        ctx.fillText(y, yearX, dateY);
+        // Dia / Mês / Ano posicionados sobre as linhas do template
+        ctx.fillText(d, 638, 810);
+        ctx.fillText(m, 752, 810);
+        ctx.fillText(y, 866, 810);
 
         // ─── EXPORTAR ─────────────────────────────────────────────
         const dataURL = canvas.toDataURL('image/png');
         const link = document.getElementById('btn-download');
         link.href = dataURL;
+
+        // Guardar para impressão
+        canvas._dataURL = dataURL;
 
         // Mostrar preview
         document.getElementById('preview-section').classList.add('visible');
@@ -440,10 +470,42 @@
 
       img.onerror = function () {
         document.getElementById('loading').classList.remove('active');
-        alert('Não foi possível carregar a imagem do certificado. Verifique sua conexão e tente novamente.');
+        alert('Não foi possível carregar o certificado. Verifique sua conexão e tente novamente.');
       };
 
       img.src = CERT_IMAGE_URL + '?t=' + Date.now();
+    }
+
+    function imprimirCertificado() {
+      const canvas = document.getElementById('cert-canvas');
+      const dataURL = canvas.toDataURL('image/png');
+      const win = window.open('', '_blank');
+      win.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Certificado de Conclusão</title>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { background: white; }
+            img { width: 100%; height: auto; display: block; }
+            @media print {
+              body { margin: 0; }
+              img { width: 100vw; max-height: 100vh; object-fit: contain; }
+            }
+          </style>
+        </head>
+        <body>
+          <img src="${dataURL}">
+          <script>
+            window.onload = function() {
+              setTimeout(function() { window.print(); }, 300);
+            };
+          <\/script>
+        </body>
+        </html>
+      `);
+      win.document.close();
     }
 
     // Enter key trigger
