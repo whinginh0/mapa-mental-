@@ -177,7 +177,7 @@ p {
 /* PLANO BÁSICO (EXATAMENTE IDÊNTICO À REFERÊNCIA ANEXADA) */
 .plan-card-basic {
   background-color: #FFFFFF;
-  border: 1px solid #E6DFD5;
+  border: 1px solid var(--cinza-borda);
   border-radius: 20px;
   padding: 24px 20px;
   box-shadow: none;
@@ -197,7 +197,7 @@ p {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.2rem;
   font-weight: 800;
-  color: #1A110B;
+  color: var(--azul-escuro);
   margin-bottom: 2px;
   text-align: left;
   width: 100%;
@@ -205,7 +205,7 @@ p {
 
 .plan-card-basic .plan-subheadline {
   font-size: 0.78rem;
-  color: #7A6D63;
+  color: var(--texto-suave);
   margin-bottom: 20px;
   line-height: 1.35;
   text-align: left;
@@ -222,26 +222,26 @@ p {
 .plan-card-basic .price-currency {
   font-size: 0.85rem;
   font-weight: 800;
-  color: #1A110B;
+  color: var(--azul-escuro);
   margin-right: 2px;
 }
 
 .plan-card-basic .price-val-main {
   font-size: 2.3rem;
   font-weight: 900;
-  color: #1A110B;
+  color: var(--azul-escuro);
   line-height: 1;
 }
 
 .plan-card-basic .price-val-cents {
   font-size: 0.85rem;
   font-weight: 800;
-  color: #1A110B;
+  color: var(--azul-escuro);
 }
 
 .plan-card-basic .price-subtext {
   font-size: 0.72rem;
-  color: #B38E6E;
+  color: var(--texto-suave);
   font-weight: 600;
   margin-left: 6px;
 }
@@ -258,7 +258,7 @@ p {
 .plan-card-basic .plan-features li {
   font-size: 0.76rem;
   font-weight: 500;
-  color: #2E2218;
+  color: var(--azul-escuro);
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -278,13 +278,13 @@ p {
 }
 
 .plan-card-basic .plan-features li.inactive {
-  color: #C2B9AF;
+  color: #94A3B8;
   text-decoration: line-through;
   opacity: 1;
 }
 
 .plan-card-basic .feat-cross {
-  color: #C2B9AF;
+  color: #94A3B8;
   font-weight: 600;
   font-size: 0.85rem;
   flex-shrink: 0;
