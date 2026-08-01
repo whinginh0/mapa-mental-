@@ -516,17 +516,18 @@
         ctx.drawImage(img, 0, 0);
 
         // --- NOME CENTRALIZADO ---
-        // Coordenadas calculadas: 50% horizontal, 44.5% vertical (logo acima de "concluiu com êxito")
-        const nomeFontSize = Math.round(H * 0.046);
+        // Coordenadas exatas: Y = 43.5% da altura (logo acima da linha decorativa "concluiu com êxito")
+        const nomeFontSize = Math.round(H * 0.042);
         ctx.font = `bold ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        ctx.fillText(nome, W * 0.50, H * 0.445);
+        ctx.fillText(nome, W * 0.50, H * 0.435);
 
         // --- DATA ---
-        // Coordenadas calculadas para as lacunas: dia (38.8%), mês (49.8%), ano (59.2%), altura (75.8%)
+        // Lacunas da caixa "Data de conclusão": Y = 77.2% da altura
+        // Dia: 40.0%, Mês: 49.5%, Ano: 58.8%
         let dataObj = new Date();
         
         // Se já tiver data gravada no localStorage, mantém a mesma data da 1ª emissão
@@ -539,16 +540,16 @@
         } catch(e) {}
 
         const { d, m, y } = formatDate(dataObj);
-        const dateFontSize = Math.round(H * 0.026);
-        ctx.font = `600 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
+        const dateFontSize = Math.round(H * 0.024);
+        ctx.font = `700 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        const dateY = H * 0.758;
-        ctx.fillText(d, W * 0.388, dateY);
-        ctx.fillText(m, W * 0.498, dateY);
-        ctx.fillText(y, W * 0.592, dateY);
+        const dateY = H * 0.772;
+        ctx.fillText(d, W * 0.400, dateY);
+        ctx.fillText(m, W * 0.495, dateY);
+        ctx.fillText(y, W * 0.588, dateY);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
