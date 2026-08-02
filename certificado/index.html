@@ -526,8 +526,8 @@
         ctx.fillText(nome, W * 0.50, H * 0.488);
 
         // --- DATA CENTRALIZADA NAS LACUNAS DA CAIXINHA ---
-        // Posição Y exata do retângulo de data: 821px (0.778 * H)
-        // Dia: 49.7% (741px) | Mês: 56.0% (835px) | Ano: 62.7% (935px)
+        // Posição Y exata do retângulo de data: 817px (0.774 * H)
+        // Dia: 50.0% (746px) | Mês: 56.2% (838px) | Ano: 62.7% (935px)
         let dataObj = new Date();
         
         try {
@@ -545,9 +545,9 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        ctx.fillText(d, W * 0.497, H * 0.778);
-        ctx.fillText(m, W * 0.560, H * 0.778);
-        ctx.fillText(y, W * 0.627, H * 0.778);
+        ctx.fillText(d, W * 0.500, H * 0.774);
+        ctx.fillText(m, W * 0.562, H * 0.774);
+        ctx.fillText(y, W * 0.627, H * 0.774);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
