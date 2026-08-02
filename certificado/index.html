@@ -526,9 +526,9 @@
         ctx.fillText(nome, W * 0.50, H * 0.488);
 
         // --- DATA CENTRALIZADA NAS LACUNAS ---
-        // Coordenadas exatas das lacunas no retângulo de data:
-        // Posição Y da linha: 770px (0.730 * H)
-        // Dia: 46.6% (695px) | Mês: 54.8% (818px) | Ano: 62.7% (935px)
+        // Coordenadas exatas da caixa de data:
+        // Posição Y da linha dos números: 791px (0.750 * H)
+        // Dia: 50.0% (745px) | Mês: 56.0% (835px) | Ano: 62.0% (925px)
         let dataObj = new Date();
         
         try {
@@ -546,9 +546,9 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        ctx.fillText(d, W * 0.466, H * 0.730);
-        ctx.fillText(m, W * 0.548, H * 0.730);
-        ctx.fillText(y, W * 0.627, H * 0.730);
+        ctx.fillText(d, W * 0.500, H * 0.750);
+        ctx.fillText(m, W * 0.560, H * 0.750);
+        ctx.fillText(y, W * 0.620, H * 0.750);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
