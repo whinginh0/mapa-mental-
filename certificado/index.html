@@ -516,21 +516,22 @@
         ctx.drawImage(img, 0, 0);
 
         // --- NOME CENTRALIZADO ---
-        // Coordenadas exatas: Y = 43.5% da altura (logo acima da linha decorativa "concluiu com êxito")
-        const nomeFontSize = Math.round(H * 0.042);
+        // Coordenadas calculadas via análise de matriz de pixels (1491x1055px):
+        // Centro horizontal: 50% (745px) | Centro vertical entre 'Certificamos que' e a linha: 42.84% (452px)
+        const nomeFontSize = Math.round(H * 0.040);
         ctx.font = `bold ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        ctx.fillText(nome, W * 0.50, H * 0.435);
+        ctx.fillText(nome, W * 0.50, H * 0.4284);
 
-        // --- DATA ---
-        // Lacunas da caixa "Data de conclusão": Y = 77.2% da altura
-        // Dia: 40.0%, Mês: 49.5%, Ano: 58.8%
+        // --- DATA CENTRALIZADA NAS LACUNAS ---
+        // Coordenadas calculadas via matriz de pixels:
+        // Altura dos traços: 72.8% (768px)
+        // Dia: 42.8% (638px) | Mês: 50.4% (752px) | Ano: 58.1% (866px)
         let dataObj = new Date();
         
-        // Se já tiver data gravada no localStorage, mantém a mesma data da 1ª emissão
         try {
           const savedCert = localStorage.getItem(STORAGE_KEY);
           if (savedCert) {
@@ -546,10 +547,9 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        const dateY = H * 0.772;
-        ctx.fillText(d, W * 0.400, dateY);
-        ctx.fillText(m, W * 0.495, dateY);
-        ctx.fillText(y, W * 0.588, dateY);
+        ctx.fillText(d, W * 0.428, H * 0.728);
+        ctx.fillText(m, W * 0.504, H * 0.728);
+        ctx.fillText(y, W * 0.581, H * 0.728);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
