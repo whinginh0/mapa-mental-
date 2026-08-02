@@ -527,7 +527,7 @@
 
         // --- DATA CENTRALIZADA NAS LACUNAS DA CAIXINHA ---
         // Posição Y exata do retângulo de data: 823px (0.780 * H)
-        // Dia: 49.0% (731px) | Mês: 55.5% (828px) | Ano: 62.0% (924px)
+        // Dia: 49.0% (731px) | Mês: 55.5% (828px) | Ano: 58.8% (877px)
         let dataObj = new Date();
         
         try {
@@ -547,7 +547,7 @@
 
         ctx.fillText(d, W * 0.490, H * 0.780);
         ctx.fillText(m, W * 0.555, H * 0.780);
-        ctx.fillText(y, W * 0.620, H * 0.780);
+        ctx.fillText(y, W * 0.588, H * 0.780);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
