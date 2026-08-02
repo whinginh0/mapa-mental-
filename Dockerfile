@@ -3,8 +3,10 @@ FROM nginx:alpine
 # Copia a configuração customizada do nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copia os arquivos estáticos
+# Copia os arquivos estáticos (incluindo as páginas de back redirect)
 COPY index.html /usr/share/nginx/html/index.html
+COPY back-redirect.html /usr/share/nginx/html/back-redirect.html
+COPY back.html /usr/share/nginx/html/back.html
 COPY style.css /usr/share/nginx/html/style.css
 COPY script.js /usr/share/nginx/html/script.js
 
