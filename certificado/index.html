@@ -516,19 +516,17 @@
         ctx.drawImage(img, 0, 0);
 
         // --- NOME CENTRALIZADO ---
-        // Coordenadas calculadas via análise de matriz de pixels (1491x1055px):
-        // Centro horizontal: 50% (745px) | Centro vertical entre 'Certificamos que' e a linha: 42.84% (452px)
+        // Posição vertical exata entre 'Certificamos que' (Y=475px) e a linha azul (Y=548px) -> Y = 515px (0.488 * H)
         const nomeFontSize = Math.round(H * 0.040);
         ctx.font = `bold ${nomeFontSize}px 'Playfair Display', Georgia, serif`;
         ctx.fillStyle = '#132644';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        ctx.fillText(nome, W * 0.50, H * 0.4284);
+        ctx.fillText(nome, W * 0.50, H * 0.488);
 
         // --- DATA CENTRALIZADA NAS LACUNAS ---
-        // Coordenadas calculadas via matriz de pixels:
-        // Altura dos traços: 72.8% (768px)
+        // Posição vertical exata na linha 'Data de conclusão': Y = 766px (0.726 * H)
         // Dia: 42.8% (638px) | Mês: 50.4% (752px) | Ano: 58.1% (866px)
         let dataObj = new Date();
         
@@ -547,9 +545,9 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        ctx.fillText(d, W * 0.428, H * 0.728);
-        ctx.fillText(m, W * 0.504, H * 0.728);
-        ctx.fillText(y, W * 0.581, H * 0.728);
+        ctx.fillText(d, W * 0.428, H * 0.726);
+        ctx.fillText(m, W * 0.504, H * 0.726);
+        ctx.fillText(y, W * 0.581, H * 0.726);
 
         // Exportar para imagem
         const dataURL = canvas.toDataURL('image/png');
