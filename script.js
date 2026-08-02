@@ -323,17 +323,45 @@ const initPage = () => {
       });
     };
 
-    // --- BACK REDIRECT INTEGRADO ---
+    // --- BACK REDIRECT INTEGRADO (SEM INTERFERIR NOS BOTÕES DA PÁGINA) ---
     (function setupBackRedirect() {
       try {
-        if (!window.location.pathname.includes("back")) {
-          history.pushState(null, null, location.href);
-          window.onpopstate = function () {
+        if (window.location.pathname.includes("back")) return;
+
+        let isNavigatingAway = false;
+
+        // Desativa a interceptação quando o usuário clica em links da página
+        document.addEventListener("click", (e) => {
+          const anchor = e.target.closest("a");
+          if (anchor) {
+            isNavigatingAway = true;
+          }
+        });
+
+        // Adiciona um estado ao histórico
+        history.pushState({ page: 1 }, "", location.href);
+
+        window.onpopstate = function (event) {
+          if (!isNavigatingAway) {
             window.location.href = "back-redirect.html";
-          };
-        }
+          }
+        };
+
+        // Suporte a smooth scroll para links âncora (#planos) sem acionar o back redirect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            isNavigatingAway = true;
+            const targetId = this.getAttribute("href");
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+
       } catch (e) {
-        console.warn("Back redirect initial setup failed:", e);
+        console.warn("Back redirect setup failed:", e);
       }
     })();
 
