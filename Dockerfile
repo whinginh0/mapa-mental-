@@ -7,6 +7,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY index.html /usr/share/nginx/html/index.html
 COPY back-redirect.html /usr/share/nginx/html/back-redirect.html
 COPY back.html /usr/share/nginx/html/back.html
+COPY upsell.html /usr/share/nginx/html/upsell.html
 COPY style.css /usr/share/nginx/html/style.css
 COPY script.js /usr/share/nginx/html/script.js
 
