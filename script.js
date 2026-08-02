@@ -323,7 +323,19 @@ const initPage = () => {
       });
     };
 
-    document.querySelectorAll(".marquee-container").forEach(setupMarqueeDrag);
+    // --- BACK REDIRECT INTEGRADO ---
+    (function setupBackRedirect() {
+      try {
+        if (!window.location.pathname.includes("back")) {
+          history.pushState(null, null, location.href);
+          window.onpopstate = function () {
+            window.location.href = "back-redirect.html";
+          };
+        }
+      } catch (e) {
+        console.warn("Back redirect initial setup failed:", e);
+      }
+    })();
 
   } catch (err) {
     console.error("Erro na inicialização da página:", err);
@@ -331,3 +343,4 @@ const initPage = () => {
 };
 
 document.addEventListener("DOMContentLoaded", initPage);
+
