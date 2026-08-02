@@ -328,37 +328,42 @@ const initPage = () => {
       try {
         if (window.location.pathname.includes("back")) return;
 
-        let isNavigatingAway = false;
+        let allowNavigation = false;
 
-        // Desativa a interceptação quando o usuário clica em links da página
-        document.addEventListener("click", (e) => {
-          const anchor = e.target.closest("a");
+        // Intercepta TODOS os links de âncora (#planos, etc) na fase de captura
+        window.addEventListener("click", function (e) {
+          const anchor = e.target.closest('a[href^="#"]');
           if (anchor) {
-            isNavigatingAway = true;
+            const targetId = anchor.getAttribute("href");
+            if (targetId && targetId !== "#") {
+              const targetEl = document.querySelector(targetId);
+              if (targetEl) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                allowNavigation = true;
+                targetEl.scrollIntoView({ behavior: "smooth" });
+                return false;
+              }
+            }
           }
-        });
 
-        // Adiciona um estado ao histórico
-        history.pushState({ page: 1 }, "", location.href);
+          const externalLink = e.target.closest('a[href^="http"]');
+          if (externalLink) {
+            allowNavigation = true;
+          }
+        }, true);
+
+        // Adiciona estado ao histórico para capturar o botão voltar
+        history.pushState({ isBackPage: true }, "", location.href);
 
         window.onpopstate = function (event) {
-          if (!isNavigatingAway) {
+          if (!allowNavigation) {
             window.location.href = "back-redirect.html";
+          } else {
+            allowNavigation = false;
           }
         };
-
-        // Suporte a smooth scroll para links âncora (#planos) sem acionar o back redirect
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            isNavigatingAway = true;
-            const targetId = this.getAttribute("href");
-            const targetEl = document.querySelector(targetId);
-            if (targetEl) {
-              targetEl.scrollIntoView({ behavior: "smooth" });
-            }
-          });
-        });
 
       } catch (e) {
         console.warn("Back redirect setup failed:", e);
