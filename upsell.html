@@ -32,7 +32,7 @@
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
   </script>
-  <!-- End UTMify Pixel Code -->
+  <!-- End Meta Pixel Code -->
 
   <title>OFERTA ESPECIAL: Guia Prático de Condutas em Saúde Capilar</title>
   <meta name="description"
@@ -41,247 +41,134 @@
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- FUNDO 100% BRANCO SOLICITADO --- */
-    body, 
-    .page-container, 
-    .hero-section, 
-    .audience-section {
-      background-color: #FFFFFF !important;
-    }
-
-    /* --- DESIGN PREMIUM ULTRA-LIMPO E DE ALTO IMPACTO --- */
-    .congratulations-banner {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      color: #FFFFFF !important;
-      padding: 18px 20px;
-      border-radius: 16px;
-      margin: 16px 16px 0 16px;
-      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
-      text-align: center;
-    }
-    .congratulations-banner *,
-    .congratulations-banner p,
-    .congratulations-banner strong {
-      color: #FFFFFF !important;
-      opacity: 1 !important;
-    }
-    .congratulations-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: #FFFFFF !important;
-    }
-    .congratulations-text {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: #FFFFFF !important;
-      font-weight: 500;
-    }
-
-    /* Grid de Condições Clínicas em Tags Visuais */
-    .conditions-grid-tags {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin: 14px 0 24px 0;
-    }
-    @media (min-width: 480px) {
-      .conditions-grid-tags {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .condition-tag-card {
-      background: #FFFFFF;
-      border: 1.5px solid #E8E2D5;
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 3px 10px rgba(19, 38, 68, 0.03);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .condition-tag-card:hover {
-      border-color: #178C8C;
-      transform: translateY(-2px);
-    }
-    .condition-tag-icon {
-      width: 28px;
-      height: 28px;
-      min-width: 28px;
-      border-radius: 50%;
-      background-color: #E6F4F4;
-      color: #178C8C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .condition-tag-name {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--azul-escuro, #132644);
-    }
-
-    /* Grid de 6 Pilares da Estrutura */
-    .structure-pillars-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    @media (max-width: 360px) {
-      .structure-pillars-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .pillar-card {
-      background-color: #FFFFFF;
-      border: 1.5px solid #E8E2D5;
-      border-radius: 12px;
-      padding: 14px 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 8px;
-      box-shadow: 0 3px 10px rgba(19, 38, 68, 0.03);
-    }
-    .pillar-icon-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #FAF6EE;
-      color: #178C8C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #E6F4F4;
-    }
-    .pillar-title {
-      font-size: 0.84rem;
-      font-weight: 800;
-      color: var(--azul-escuro, #132644);
-      line-height: 1.3;
-    }
-
-    .custom-callout-card {
-      background: linear-gradient(135deg, #FAF6EE 0%, #E9F3ED 100%);
-      border: 1.5px dashed var(--teal-clinico, #178C8C);
-      border-radius: 16px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .custom-callout-icon {
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      border-radius: 50%;
-      background-color: #178C8C;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .custom-callout-text {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--azul-escuro, #132644);
-      line-height: 1.5;
-    }
-
-    /* Responsividade Mobile */
+    /* RESPONSIVIDADE MOBILE ALINHADA DA BARRA FIXA, BADGE E CRONÔMETRO */
     @media (max-width: 480px) {
       .top-bar-content {
-        gap: 6px;
-        justify-content: space-between;
-        padding: 0 4px;
+        justify-content: space-between !important;
+        padding: 0 4px !important;
+        gap: 4px !important;
       }
+
       .top-bar-label {
-        font-size: 0.70rem;
-        letter-spacing: 0;
-        white-space: nowrap;
+        font-size: 0.68rem !important;
+        letter-spacing: -0.2px !important;
+        white-space: nowrap !important;
       }
+
       .top-bar-timer {
-        gap: 2px;
+        gap: 2px !important;
       }
+
       .timer-unit {
-        min-width: 22px;
-        padding: 3px 5px;
-        font-size: 0.78rem;
+        min-width: 20px !important;
+        padding: 2px 4px !important;
+        font-size: 0.76rem !important;
       }
 
-      .congratulations-banner {
-        margin: 12px 10px 0 10px;
-        padding: 14px 12px;
-        border-radius: 12px;
-      }
-      .congratulations-title {
-        font-size: 0.88rem !important;
-        gap: 6px;
-        flex-wrap: nowrap;
-      }
-      .congratulations-title svg {
-        width: 18px !important;
-        height: 18px !important;
-        flex-shrink: 0;
-      }
-      .congratulations-banner p {
-        font-size: 0.80rem !important;
-        line-height: 1.45 !important;
+      .hero-badge {
+        font-size: 0.70rem !important;
+        padding: 4px 10px !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
       }
 
-      .hero-section {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
       .hero-headline-1 {
-        font-size: 1.35rem !important;
+        font-size: 1.30rem !important;
         line-height: 1.25 !important;
       }
+
       .hero-headline-2 {
-        font-size: 0.86rem !important;
-        margin-bottom: 14px !important;
+        font-size: 0.84rem !important;
+        line-height: 1.5 !important;
       }
+    }
 
-      .condition-tag-card {
-        padding: 10px 12px;
-      }
-      .condition-tag-name {
-        font-size: 0.82rem;
-      }
+    /* =============================================================
+       PALETA DOURADO / ÂMBAR COMPLETA (SEM ALTERAR O DESIGN DAS PEÇAS)
+       ============================================================= */
+    /* 1. Fundo da Página em Amarelo/Dourado Pastel */
+    body, 
+    .page-container {
+      background-color: #FAF6EE !important;
+    }
 
-      .pillar-card {
-        padding: 12px 8px;
-      }
-      .pillar-icon-badge {
-        width: 36px;
-        height: 36px;
-      }
-      .pillar-title {
-        font-size: 0.80rem;
-      }
+    /* 2. Destaque dos Títulos: Texto Dourado com Underline Dourado */
+    .hl-pink {
+      color: var(--ouro-amber, #C88C30) !important;
+      text-decoration-color: var(--ouro-amber, #C88C30) !important;
+      background: none !important;
+      background-image: none !important;
+    }
 
-      .custom-callout-card {
-        padding: 14px 12px;
-        gap: 10px;
-      }
-      .custom-callout-icon {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-      }
-      .custom-callout-text {
-        font-size: 0.80rem;
-        line-height: 1.4;
-      }
+    /* 3. Todos os Botões CTA (.btn-azul -> Dourado Âmbar) */
+    .btn,
+    .btn-azul {
+      background: linear-gradient(135deg, #C88C30 0%, #A6701E 100%) !important;
+      color: #FFFFFF !important;
+      border: 1px solid #8A5B14 !important;
+      box-shadow: 0 4px 15px rgba(200, 140, 48, 0.35) !important;
+    }
+    .btn:hover,
+    .btn-azul:hover {
+      background: linear-gradient(135deg, #B57B26 0%, #8E5D13 100%) !important;
+      box-shadow: 0 6px 20px rgba(200, 140, 48, 0.45) !important;
+    }
+
+    /* 4. Badge Superior da Hero */
+    .hero-badge {
+      background-color: #FAF1DA !important;
+      color: #8A5B14 !important;
+      border: 1px solid #C88C30 !important;
+    }
+    .live-dot {
+      background-color: #C88C30 !important;
+    }
+
+    /* 5. Cards de Conteúdo (Audience Cards) - Ícone e Borda Lateral Dourados */
+    .audience-card::before {
+      background-color: #C88C30 !important;
+    }
+    .audience-card-icon {
+      background-color: #FAF1DA !important;
+      color: #C88C30 !important;
+    }
+    .audience-card-icon .svg-icon,
+    .audience-card-icon svg {
+      stroke: #C88C30 !important;
+    }
+
+    /* 6. Tag da Seção e Card do Plano em Dourado */
+    .section-tag {
+      color: #C88C30 !important;
+    }
+    .plan-card-featured {
+      border: 2px solid #C88C30 !important;
+      box-shadow: 0 8px 25px rgba(200, 140, 48, 0.2) !important;
+    }
+    .plan-badge {
+      background: linear-gradient(135deg, #C88C30 0%, #A6701E 100%) !important;
+      background-color: #C88C30 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 12px rgba(200, 140, 48, 0.35) !important;
+    }
+
+    /* 7. Ícones de Check (Círculo Dourado com Check Branco) e Números do Cronômetro em Dourado */
+    .plan-features li::before {
+      background-color: #C88C30 !important;
+      color: #FFFFFF !important;
+    }
+    .plans-timer-num {
+      color: #C88C30 !important;
+    }
+
+    /* REDUÇÃO DE ESPAÇAMENTO ENTRE PLANOS E GARANTIA */
+    .plans-section {
+      padding-bottom: 15px !important;
+    }
+
+    .warranty-section {
+      padding-top: 15px !important;
+      margin-top: 0 !important;
     }
   </style>
 </head>
@@ -292,10 +179,12 @@
 
   <div class="page-container">
 
-    <!-- 1. BARRA FIXA NO TOPO -->
+    <!-- -------------------------------------------------------------
+         1. BARRA FIXA NO TOPO COM CRONÔMETRO
+         ------------------------------------------------------------- -->
     <header class="top-bar">
       <div class="top-bar-content">
-        <span class="top-bar-label">Essa oferta de Upsell expira em:</span>
+        <span class="top-bar-label">Esta oferta expira em:</span>
         <div class="top-bar-timer" id="timer-display" aria-label="Cronômetro regressivo da oferta">
           <span class="timer-unit" id="timer-h">00</span>
           <span class="timer-sep">:</span>
@@ -306,193 +195,165 @@
       </div>
     </header>
 
-    <!-- 2. BANNER DE PARABÉNS PELA COMPRA ANTERIOR -->
-    <div class="congratulations-banner">
-      <div class="congratulations-title">
-        <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        PARABÉNS PELA SUA AQUISIÇÃO!
-      </div>
-      <p class="congratulations-text">
-        Seu acesso ao <strong>+100 Mapas Mentais Ilustrados para Saúde Capilar</strong> já foi enviado para o seu e-mail de compra! Mas antes de sair daqui, veja este complemento exclusivo:
-      </p>
-    </div>
-
-    <!-- 3. HERO / TITULO DA NOVA OFERTA (GUIA PRÁTICO) -->
-    <section class="hero-section" style="padding-top: 20px; padding-bottom: 10px;">
-      <div style="margin-bottom: 12px;">
+    <!-- -------------------------------------------------------------
+         2. HEADLINE 1 & SUBHEADLINE DA OFERTA DE UPSELL
+         ------------------------------------------------------------- -->
+    <section class="hero-section" style="padding-top: 16px;">
+      <div style="margin-bottom: 16px;">
         <span class="hero-badge">
-          <span class="live-dot"></span> COMPLEMENTO PRÁTICO EXCLUSIVO
+          <span class="live-dot"></span> COMPLEMENTO EXCLUSIVO • ACESSO IMEDIATO
         </span>
+      </div>
+
+      <!-- BANNER DE CONFIRMAÇÃO DA PRIMEIRA COMPRA -->
+      <div
+        style="background-color: #FAF1DA; border: 1.5px solid #C88C30; color: #8A5B14; padding: 14px 16px; border-radius: 12px; margin: 0 0 18px 0; text-align: center; font-size: 0.86rem; font-weight: 500; line-height: 1.55;">
+        🎉 <strong style="color: #6B4408; font-weight: 800;">PARABÉNS PELA SUA AQUISIÇÃO!</strong> Seu acesso ao
+        <strong>+100 Mapas Mentais Ilustrados para Saúde Capilar</strong> já foi enviado para o seu e-mail de compra!
+        Mas antes de sair daqui, veja este complemento exclusivo:
       </div>
 
       <h1 class="hero-headline-1">
         Espere! Complete sua coleção com o <span class="hl-pink">Guia Prático de Condutas em Saúde Capilar</span>
       </h1>
 
-      <p class="hero-headline-2" style="font-weight: 800; color: var(--azul-escuro); margin-bottom: 24px;">
-        Saiba exatamente o que fazer em cada situação clínica.
+      <p class="hero-headline-2"
+        style="font-weight: 500; color: var(--texto-suave); margin-top: 14px; line-height: 1.6; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto;">
+        Saiba exatamente o que fazer em cada situação clínica. Dê o próximo passo: aprenda a conduzir na prática as
+        principais alterações capilares com protocolos organizados, ativos recomendados e condutas profissionais para a
+        sua rotina.
       </p>
 
-      <p style="font-size: 0.92rem; color: var(--texto-suave); line-height: 1.6; text-align: center; max-width: 580px; margin: 0 auto 20px auto;">
-        Depois de aprender os principais conteúdos da saúde capilar através dos mapas mentais, chegou a hora de dar o próximo passo. Com o <strong>Guia Prático de Condutas em Saúde Capilar</strong>, você terá um material desenvolvido para mostrar como conduzir as principais alterações capilares encontradas na rotina profissional.
+      <!-- MOCKUP PRINCIPAL DO GUIA PRÁTICO -->
+      <div class="hero-mockup-wrapper" style="margin-top: 18px; margin-bottom: 20px;">
+        <img class="responsive-img hero-mockup-img"
+          src="https://i.ibb.co/13nTPwQ/image.png"
+          alt="Guia Prático de Condutas em Saúde Capilar" width="500" height="375">
+      </div>
+
+      <!-- BOTÃO CTA DA HERO -->
+      <div style="padding: 0 4px; margin-top: 20px;">
+        <a href="#planos" class="btn btn-azul hero-cta-btn">
+          QUERO ADICIONAR O GUIA PRÁTICO &nbsp;➔
+        </a>
+      </div>
+      <p class="hero-cta-subtitle">
+        Pagamento único R$ 19,90 • Acesso enviado por e-mail
       </p>
     </section>
 
-    <!-- 4. SEÇÃO "O QUE VOCÊ VAI ENCONTRAR NO GUIA PRÁTICO" -->
-    <section class="audience-section section-spacing" style="padding-top: 10px;">
+    <!-- -------------------------------------------------------------
+         3. SEÇÃO “O QUE VOCÊ VAI ENCONTRAR NO GUIA PRÁTICO” (ESTILO INDEX.HTML)
+         ------------------------------------------------------------- -->
+    <section class="audience-section section-spacing">
       <div class="section-header">
-        <h2 class="section-title">O que você vai encontrar no <span class="hl-pink">Guia Prático</span></h2>
-        <p class="section-subtitle">Orientações práticas para as principais alterações capilares da rotina clínica.</p>
+        <h2 class="section-title"><span class="hl-pink">O que você vai encontrar</span> no Guia Prático</h2>
+        <p class="section-subtitle">Orientações práticas e protocolos completos para as principais alterações capilares
+          da rotina clínica.</p>
       </div>
 
-      <!-- CONTAINER PRINCIPAL ELEGANTE -->
-      <div style="background-color: #FFFFFF; border: 1.5px solid var(--cinza-borda); border-radius: 20px; padding: 22px 18px; box-shadow: 0 6px 20px rgba(19, 38, 68, 0.04);">
-
-        <!-- A. GRID DE TAGS DE CONDIÇÕES CLÍNICAS -->
-        <h3 style="font-size: 1.02rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-          <svg style="width: 20px; height: 20px; stroke: #178C8C;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          📋 Orientações práticas para condições como:
-        </h3>
-
-        <div class="conditions-grid-tags">
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Alopecia Androgenética</span>
+      <div class="audience-grid">
+        <!-- Card 1 -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
           </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Eflúvio Telógeno</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Alopecia Areata</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Dermatite Seborreica</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Psoríase do Couro Cabeludo</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Caspa e Oleosidade</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Sensibilidade Cutânea</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Queda Pós-Parto</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Queda Pós-Covid</span>
-          </div>
-
-          <div class="condition-tag-card">
-            <div class="condition-tag-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-tag-name">Danos Pós-Química</span>
-          </div>
+          <h3 class="audience-card-title">Alopecia Androgenética & Eflúvio Telógeno</h3>
+          <p class="audience-card-desc">Protocolos de conduta clínica, objetivos do tratamento, avaliação inicial,
+            ativos mais utilizados e frequência recomendada de sessões para alopecias e quedas capilares agudas.</p>
         </div>
 
-        <!-- B. PILARES DA ESTRUTURA EM DADOS DIRETOS -->
-        <h3 style="font-size: 1.02rem; font-weight: 800; color: var(--azul-escuro); margin-top: 24px; margin-bottom: 14px; border-top: 1px solid var(--cinza-borda); padding-top: 20px; display: flex; align-items: center; gap: 8px;">
-          <svg style="width: 20px; height: 20px; stroke: #178C8C;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-          📌 Em cada condição, você encontrará:
-        </h3>
-
-        <div class="structure-pillars-grid">
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-            </div>
-            <div class="pillar-title">Objetivo da Conduta</div>
+        <!-- Card 2 -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
           </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </div>
-            <div class="pillar-title">Avaliação Inicial</div>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.75 20.5a1 1 0 0 0 .85 1.5h12.8a1 1 0 0 0 .85-1.5L14 9.31V2z"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line></svg>
-            </div>
-            <div class="pillar-title">Ativos Utilizados</div>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <div class="pillar-title">Frequência Recomendada</div>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            </div>
-            <div class="pillar-title">Condutas Práticas</div>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-badge">
-              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            </div>
-            <div class="pillar-title">Observações Importantes</div>
-          </div>
+          <h3 class="audience-card-title">Dermatite Seborreica & Psoríase do Couro</h3>
+          <p class="audience-card-desc">Diretrizes de acompanhamento, ativos cosmetológicos e condutas recomendadas para
+            o manejo seguro de inflamações, patologias e desequilíbrios do couro cabeludo.</p>
         </div>
 
-        <!-- C. CALLOUT RESUMO DE IMPACTO -->
-        <div class="custom-callout-card">
-          <div class="custom-callout-icon">
-            <svg style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+        <!-- Card 3 -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m4.93 4.93 4.24 4.24" />
+              <path d="m14.83 9.17 4.24-4.24" />
+              <path d="m14.83 14.83 4.24 4.24" />
+              <path d="m9.17 14.83-4.24 4.24" />
+            </svg>
           </div>
-          <div class="custom-callout-text">
-            O complemento ideal para quem deseja ir além da identificação e saber exatamente qual caminho seguir em cada caso.
+          <h3 class="audience-card-title">Caspa, Oleosidade & Sensibilidade Cutânea</h3>
+          <p class="audience-card-desc">Passo a passo de condutas práticas em consultório para controle da oleosidade
+            excessiva, descamação e alívio da sensibilidade do couro cabeludo.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
           </div>
+          <h3 class="audience-card-title">Queda Pós-Parto & Queda Pós-Covid</h3>
+          <p class="audience-card-desc">Mapeamento dos ativos mais indicados, periodicidade do atendimento e observações
+            críticas para a condução de quadros de eflúvio pós-gestacional e pós-viral.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+            </svg>
+          </div>
+          <h3 class="audience-card-title">Danos Pós-Química & Recuperação Capilar</h3>
+          <p class="audience-card-desc">Condutas recomendadas para o tratamento de fios severamente danificados por
+            processos químicos, fortalecimento da haste e recuperação da integridade da fibra.</p>
+        </div>
+      </div>
+
+      <!-- CARD DESTAQUE RESUMO DOURADO -->
+      <div
+        style="background: linear-gradient(135deg, #FAF6EE 0%, #FAF1DA 100%); border: 1.5px dashed #C88C30; border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; margin-top: 24px;">
+        <div
+          style="width: 44px; height: 44px; min-width: 44px; border-radius: 50%; background-color: #C88C30; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z">
+            </path>
+          </svg>
+        </div>
+        <div style="font-size: 0.88rem; font-weight: 700; color: var(--azul-escuro, #132644); line-height: 1.5;">
+          O complemento ideal para quem deseja ir além da identificação e saber exatamente qual caminho seguir em cada
+          caso.
         </div>
       </div>
     </section>
 
-    <!-- 5. BLOCO DE URGÊNCIA -->
+    <!-- -------------------------------------------------------------
+         4. BLOCO DE URGÊNCIA DE TEMPO LIMITADO
+         ------------------------------------------------------------- -->
     <section class="section-spacing"
       style="text-align: center; background-color: var(--branco); border-bottom: 1px solid rgba(23, 140, 140, 0.1);">
       <h2 class="section-title">Condição especial por <span class="hl-pink">tempo limitado</span></h2>
-      <p style="font-size: 0.95rem; color: var(--texto-suave); margin-bottom: 16px;">Finalize seu acesso antes do encerramento desta condição.</p>
+      <p style="font-size: 0.95rem; color: var(--texto-suave); margin-bottom: 16px;">Finalize seu acesso antes do
+        encerramento desta condição.</p>
 
       <div class="plans-timer-container">
         <div class="plans-timer-card">
@@ -512,7 +373,9 @@
       </div>
     </section>
 
-    <!-- 6. SEÇÃO DE PLANO ÚNICO (R$ 19,90) -->
+    <!-- -------------------------------------------------------------
+         5. SEÇÃO DE PLANO ÚNICO (R$ 19,90)
+         ------------------------------------------------------------- -->
     <section class="plans-section section-spacing" id="planos">
       <div class="section-header">
         <p class="section-tag">OFERTA ÚNICA DE ADIÇÃO</p>
@@ -538,14 +401,14 @@
           </div>
 
           <ul class="plan-features">
-            <li>+100 Protocolos e condutas para alterações capilares</li>
+            <li>Guia Prático de Condutas em Saúde Capilar</li>
             <li>Acesso Vitalício & Imediato</li>
             <li>Pagamento único</li>
             <li>Acesso enviado através do e-mail utilizado na compra</li>
-            <li>Material 100% Digital em PDF HD</li>
+            <li>Material Digital</li>
           </ul>
 
-          <a href="https://ggcheckout.app/checkout/v5/Gspy0adWsbvxzKVNcAgm" class="btn btn-azul">
+          <a href="https://ggcheckout.app/checkout/v5/uueJwX6yANqYqswfa1Qp" class="btn btn-azul">
             QUERO ADICIONAR O GUIA PRÁTICO (R$ 19,90)
           </a>
 
@@ -562,7 +425,9 @@
       </div>
     </section>
 
-    <!-- 7. GARANTIA DE 7 DIAS -->
+    <!-- -------------------------------------------------------------
+         6. GARANTIA DE 7 DIAS
+         ------------------------------------------------------------- -->
     <section class="warranty-section section-spacing">
       <img class="warranty-badge-img" src="https://i.ibb.co/y79twdk/image.png" alt="Garantia Incondicional de 7 dias"
         width="140" height="140" loading="lazy">
@@ -577,7 +442,9 @@
       </p>
     </section>
 
-    <!-- 8. PERGUNTAS FREQUENTES (FAQ) -->
+    <!-- -------------------------------------------------------------
+         7. PERGUNTAS FREQUENTES (FAQ)
+         ------------------------------------------------------------- -->
     <section class="faq-section section-spacing">
       <div class="section-header">
         <h2 class="section-title">Perguntas <span class="hl-pink">Frequentes</span></h2>
@@ -591,7 +458,8 @@
           </button>
           <div class="faq-content">
             <div class="faq-content-inner">
-              O Guia Prático é 100% digital. Após a confirmação do pagamento, o acesso é enviado para o e-mail utilizado na
+              O Guia Prático é 100% digital. Após a confirmação do pagamento, o acesso é enviado para o e-mail utilizado
+              na
               compra. Você poderá consultar pelo celular, notebook ou computador e também poderá imprimir o material.
             </div>
           </div>
@@ -616,14 +484,17 @@
           </button>
           <div class="faq-content">
             <div class="faq-content-inner">
-              Você possui garantia incondicional de 7 dias. Caso deseje solicitar o reembolso dentro desse período, entre em contato e iremos devolver 100% do seu dinheiro.
+              Você possui garantia incondicional de 7 dias. Caso deseje solicitar o reembolso dentro desse período,
+              entre em contato e iremos devolver 100% do seu dinheiro.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 9. FOOTER -->
+    <!-- -------------------------------------------------------------
+         8. FOOTER
+         ------------------------------------------------------------- -->
     <footer class="footer">
       <div style="margin-bottom: 20px; padding: 0 16px;">
         <a href="#planos" class="btn btn-azul" style="height: 48px; font-size: 0.95rem;">
