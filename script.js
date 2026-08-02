@@ -162,11 +162,13 @@ const initPage = () => {
         }
       };
 
-      const hl1 = document.querySelector(".hero-headline-1");
-      if (hl1) hl1.innerHTML = CONFIG.headlinePrincipal;
+      if (!window.location.pathname.includes("upsell") && !window.location.pathname.includes("back")) {
+        const hl1 = document.querySelector("#headline-p");
+        if (hl1) hl1.innerHTML = CONFIG.headlinePrincipal;
 
-      const hl2 = document.querySelector(".hero-headline-2");
-      if (hl2) hl2.innerHTML = CONFIG.subheadlineDeApoio;
+        const hl2 = document.querySelector("#headline-s");
+        if (hl2) hl2.innerHTML = CONFIG.subheadlineDeApoio;
+      }
 
       walkNode(document.body);
 
