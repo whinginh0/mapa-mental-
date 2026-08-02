@@ -34,7 +34,7 @@
   </script>
   <!-- End UTMify Pixel Code -->
 
-  <title>EI, ESPERE! Promocao Especial - +100 Mapas Mentais Ilustrados para Saúde Capilar</title>
+  <title>EI, ESPERE! Promocao Especial - Saúde Capilar</title>
   <meta name="description"
     content="Uma biblioteca visual criada para facilitar o estudo, a revisão e a consulta dos principais conteúdos da saúde capilar. Material 100% digital e de acesso imediato.">
 
@@ -47,6 +47,29 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    .top-bar-clean {
+      background-color: #132644;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      border-bottom: 3px solid #178C8C;
+    }
+    .top-bar-clean-title {
+      font-weight: 800;
+      font-size: 0.88rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 
 <body>
@@ -55,53 +78,64 @@
 
   <div class="page-container">
 
-    <!-- -------------------------------------------------------------
-         1. BARRA FIXA NO TOPO COM CRONÔMETRO DE URGÊNCIA
-         ------------------------------------------------------------- -->
-    <header class="top-bar" style="background-color: var(--rosa-destaque, #D9536F);">
-      <div class="top-bar-content">
-        <span class="top-bar-label" style="font-weight: 800; text-transform: uppercase;">🚨 EI, ESPERE! Tem uma promoção especial para você:</span>
-        <div class="top-bar-timer" id="timer-display" aria-label="Cronômetro regressivo da oferta">
-          <span class="timer-unit" id="timer-h">00</span>
-          <span class="timer-sep">:</span>
-          <span class="timer-unit" id="timer-m">14</span>
-          <span class="timer-sep">:</span>
-          <span class="timer-unit" id="timer-s">59</span>
-        </div>
+    <!-- 1. BARRA SUPERIOR MELHORADA -->
+    <header class="top-bar-clean">
+      <div class="top-bar-clean-title">
+        <span>🚨 EI, ESPERE! TEM UMA PROMOÇÃO ESPECIAL PARA VOCÊ</span>
       </div>
     </header>
 
-    <!-- -------------------------------------------------------------
-         2. HERO / ALERTA DE REENGAJAMENTO
-         ------------------------------------------------------------- -->
-    <section class="hero-section">
+    <!-- 2. HERO / MENSAGEM DE NÃO SAIR DA PÁGINA + CAPA DO PRODUTO EM BAIXO -->
+    <section class="hero-section" style="padding-top: 24px; padding-bottom: 20px; text-align: center;">
       <div style="margin-bottom: 12px;">
         <span class="hero-badge" style="background-color: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5;">
-          <span class="live-dot" style="background-color: #EF4444;"></span> OFERTA ÚNICA DE SAÍDA • DESCONTO EXCLUSIVO
+          <span class="live-dot" style="background-color: #EF4444;"></span> OPORTUNIDADE ÚNICA DE SAÍDA
         </span>
       </div>
 
-      <h1 class="hero-headline-1" id="headline-p">
-        Não vá embora de mãos vazias! Garanta seu acesso com <span class="hl-pink">Desconto Especial</span>
+      <h1 class="hero-headline-1" style="font-size: 1.55rem; line-height: 1.25; margin-bottom: 12px;">
+        Espere! Não saia da página, temos uma <span class="hl-pink">Promoção Especial</span> para você!
       </h1>
 
-      <p class="hero-headline-2" id="headline-s">
-        Liberamos uma oportunidade única de saída para você adquirir o material completo de Saúde Capilar com valor promocional exclusivo. Escolha seu plano abaixo:
+      <p class="hero-headline-2" style="font-size: 0.92rem; margin-bottom: 20px; color: var(--texto-suave);">
+        Liberamos um desconto exclusivo de saída para você garantir o material de Saúde Capilar com valor super reduzido. Escolha a sua opção abaixo:
       </p>
 
-      <div class="hero-mockup-wrapper">
+      <!-- CAPA DO PRODUTO LOGO ABAIXO DA MENSAGEM -->
+      <div class="hero-mockup-wrapper" style="margin-bottom: 8px;">
         <img class="responsive-img hero-mockup-img"
           src="https://i.ibb.co/KzzSfzfM/capa-saude-capilar-site-aproximada-sem-tarja.png"
-          alt="+100 Mapas Mentais Ilustrados para Saúde Capilar" width="500" height="375">
+          alt="+100 Mapas Mentais Ilustrados para Saúde Capilar" width="500" height="375" style="max-width: 320px; width: 100%; height: auto; margin: 0 auto; display: block;">
       </div>
     </section>
 
-    <!-- -------------------------------------------------------------
-         3. SEÇÃO DE PLANOS (EXATAMENTE MESMO DESIGN DA PÁGINA DE VENDAS)
-         ------------------------------------------------------------- -->
-    <section class="plans-section section-spacing" id="planos">
+    <!-- 3. CRONÔMETRO DE URGÊNCIA LOGO ANTES DOS PLANOS -->
+    <section style="text-align: center; background-color: var(--branco); border-radius: 16px; margin: 10px 16px 20px 16px; padding: 18px 14px; border: 1px solid rgba(23, 140, 140, 0.18); box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+      <h2 class="section-title" style="font-size: 1.1rem; margin-bottom: 4px;">Esta oferta especial expira em:</h2>
+      <p style="font-size: 0.82rem; color: var(--texto-suave); margin-bottom: 12px;">Aproveite o desconto antes que a condição seja encerrada.</p>
+
+      <div class="plans-timer-container">
+        <div class="plans-timer-card">
+          <span class="plans-timer-num" id="plans-timer-h">00</span>
+          <span class="plans-timer-unit">HORAS</span>
+        </div>
+        <span class="plans-timer-sep">:</span>
+        <div class="plans-timer-card">
+          <span class="plans-timer-num" id="plans-timer-m">14</span>
+          <span class="plans-timer-unit">MINUTOS</span>
+        </div>
+        <span class="plans-timer-sep">:</span>
+        <div class="plans-timer-card">
+          <span class="plans-timer-num" id="plans-timer-s">59</span>
+          <span class="plans-timer-unit">SEGUNDOS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SEÇÃO DE PLANOS (DESIGN DA PÁGINA DE VENDAS ORIGINAL) -->
+    <section class="plans-section section-spacing" id="planos" style="padding-top: 10px;">
       <div class="section-header">
-        <p class="section-tag">PROMOÇÃO ESPECIAL DE SAÍDA</p>
+        <p class="section-tag">ESCOLHA SEU PLANO COM DESCONTO</p>
         <h2 class="section-title">Escolha como você quer <span class="hl-pink">acessar</span></h2>
         <p class="section-subtitle">Pagamento único. Sem mensalidades.</p>
       </div>
@@ -220,9 +254,7 @@
       </div>
     </section>
 
-    <!-- -------------------------------------------------------------
-         4. GARANTIA DE 7 DIAS (EXATAMENTE MESMO DESIGN)
-         ------------------------------------------------------------- -->
+    <!-- 5. GARANTIA DE 7 DIAS -->
     <section class="warranty-section section-spacing">
       <img class="warranty-badge-img" src="https://i.ibb.co/y79twdk/image.png" alt="Garantia Incondicional de 7 dias"
         width="140" height="140" loading="lazy">
@@ -231,15 +263,13 @@
       <h2 class="warranty-title"><span class="hl-yellow" style="color: inherit;">Sua Satisfação</span> é Prioridade</h2>
 
       <p class="warranty-text">
-        Se em até 7 dias você não amar a experiência com o material, <span class="hl-yellow"
+        Se em até 7 dias você não amar a experiência com el material, <span class="hl-yellow"
           style="color: inherit; font-weight: inherit;">devolvemos 100% do seu dinheiro</span>. Sem perguntas, sem
         burocracia.
       </p>
     </section>
 
-    <!-- -------------------------------------------------------------
-         5. PERGUNTAS FREQUENTES (EXATAMENTE MESMO DESIGN)
-         ------------------------------------------------------------- -->
+    <!-- 6. PERGUNTAS FREQUENTES -->
     <section class="faq-section section-spacing">
       <div class="section-header">
         <h2 class="section-title">Perguntas <span class="hl-pink">Frequentes</span></h2>
@@ -314,9 +344,7 @@
       </div>
     </section>
 
-    <!-- -------------------------------------------------------------
-         6. FOOTER
-         ------------------------------------------------------------- -->
+    <!-- 7. FOOTER -->
     <footer class="footer">
       <div style="margin-bottom: 20px; padding: 0 16px;">
         <a href="#planos" class="btn btn-azul" style="height: 48px; font-size: 0.95rem;">
