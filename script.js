@@ -162,6 +162,14 @@ const initPage = () => {
         }
       };
 
+      if (!window.location.pathname.includes("upsell") && !window.location.pathname.includes("back")) {
+        const hl1 = document.querySelector("#headline-p");
+        if (hl1) hl1.innerHTML = CONFIG.headlinePrincipal;
+
+        const hl2 = document.querySelector("#headline-s");
+        if (hl2) hl2.innerHTML = CONFIG.subheadlineDeApoio;
+      }
+
       walkNode(document.body);
 
       if (document.title.includes("[NOME_DO_MATERIAL_PRINCIPAL]") || document.title.includes("Bluey")) {

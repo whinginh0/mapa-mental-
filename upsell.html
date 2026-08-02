@@ -41,7 +41,6 @@
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Estilos Visuais Avançados para o Upsell (Sem Emojis, Apenas Ícones SVG) */
     .congratulations-banner {
       background: linear-gradient(135deg, #10B981 0%, #059669 100%);
       color: #FFFFFF;
@@ -62,122 +61,20 @@
       gap: 8px;
     }
 
-    .upsell-intro-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 16px 0 24px 0;
-      padding: 0 4px;
-    }
-    .upsell-intro-card {
-      background: #FFFFFF;
-      border: 1px solid var(--cinza-borda, #E8E2D5);
-      border-radius: 14px;
-      padding: 16px 18px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      box-shadow: 0 4px 15px rgba(19, 38, 68, 0.03);
-    }
-    .upsell-intro-icon {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      border-radius: 12px;
-      background-color: #E6F4F4;
-      color: #178C8C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .conditions-visual-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    @media (min-width: 400px) {
-      .conditions-visual-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .condition-pill-card {
-      background-color: #FFFFFF;
-      border: 1px solid var(--cinza-borda, #E8E2D5);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 2px 8px rgba(19, 38, 68, 0.03);
-    }
-    .condition-pill-icon {
-      width: 26px;
-      height: 26px;
-      min-width: 26px;
-      border-radius: 50%;
-      background-color: #E6F4F4;
-      color: #178C8C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .condition-pill-text {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--azul-escuro, #132644);
-    }
-
-    .structure-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .structure-feature-card {
-      background: #FFFFFF;
-      border: 1px solid var(--cinza-borda, #E8E2D5);
-      border-radius: 12px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 2px 8px rgba(19, 38, 68, 0.02);
-    }
-    .structure-feature-icon {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-      border-radius: 8px;
-      background-color: var(--fundo-pagina, #FAF6EE);
-      color: #178C8C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #E6F4F4;
-    }
-    .structure-feature-title {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--azul-escuro, #132644);
-      line-height: 1.25;
-    }
-
-    .custom-callout {
+    .custom-callout-card {
       background: linear-gradient(135deg, #FAF6EE 0%, #E9F3ED 100%);
-      border: 1px dashed var(--teal-clinico, #178C8C);
-      border-radius: 14px;
-      padding: 14px 16px;
+      border: 1.5px dashed var(--teal-clinico, #178C8C);
+      border-radius: 16px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 14px;
+      margin-top: 20px;
     }
     .custom-callout-icon {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
       border-radius: 50%;
       background-color: #178C8C;
       color: white;
@@ -186,10 +83,10 @@
       justify-content: center;
     }
     .custom-callout-text {
-      font-size: 0.84rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--azul-escuro, #132644);
-      line-height: 1.45;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -237,27 +134,27 @@
         Espere! Complete sua coleção com o <span class="hl-pink">Guia Prático de Condutas em Saúde Capilar</span>
       </h1>
 
-      <p class="hero-headline-2" style="font-weight: 800; color: var(--azul-escuro);">
+      <p class="hero-headline-2" style="font-weight: 800; color: var(--azul-escuro); margin-bottom: 20px;">
         Saiba exatamente o que fazer em cada situação clínica.
       </p>
 
-      <!-- CARDS ILUSTRATIVOS DOS OBJETIVOS (SEM TEXTÃO PURO) -->
-      <div class="upsell-intro-grid">
-        <div class="upsell-intro-card">
-          <div class="upsell-intro-icon">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+      <!-- SEÇÃO 1: INTRODUÇÃO EM CARDS VISUAIS ELEGANTES (ESTILO AUDIENCE-CARD) -->
+      <div class="audience-grid">
+        <!-- Card 1: Verde Sábio -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon" style="background-color: #E9F3ED; color: #5E8B75;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5E8B75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
           </div>
-          <div>
-            <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 4px;">O Próximo Passo do Seu Estudo</h4>
-            <p style="font-size: 0.84rem; color: var(--texto-suave); line-height: 1.45;">Depois de aprender os conteúdos nos mapas mentais, saiba como conduzir a prática clínica.</p>
-          </div>
+          <h3 class="audience-card-title">O Próximo Passo Clínico</h3>
+          <p class="audience-card-desc">Depois de aprender os principais conteúdos da saúde capilar através dos mapas mentais, chegou a hora de dar o próximo passo e saber como conduzir cada situação na prática.</p>
         </div>
 
-        <div class="upsell-intro-card">
-          <div class="upsell-intro-icon">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+        <!-- Card 2: Roxo Suave -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon" style="background-color: #EFEBF5; color: #796DA6;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#796DA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
               <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -265,171 +162,122 @@
               <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
-          <div>
-            <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 4px;">Protocolos Organizados</h4>
-            <p style="font-size: 0.84rem; color: var(--texto-suave); line-height: 1.45;">Mostra como conduzir as principais alterações capilares encontradas na rotina profissional.</p>
-          </div>
+          <h3 class="audience-card-title">Protocolos & Condutas Organizadas</h3>
+          <p class="audience-card-desc">Material desenvolvido para mostrar como conduzir as principais alterações capilares encontradas na rotina profissional, com diretrizes claras e objetivas.</p>
         </div>
 
-        <div class="upsell-intro-card">
-          <div class="upsell-intro-icon">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+        <!-- Card 3: Ouro Âmbar -->
+        <div class="audience-card fade-in-element visible">
+          <div class="audience-card-icon" style="background-color: #FAF1DA; color: #C88C30;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#C88C30" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
           </div>
-          <div>
-            <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 4px;">Condutas & Ativos Recomendados</h4>
-            <p style="font-size: 0.84rem; color: var(--texto-suave); line-height: 1.45;">Reúne objetivos de tratamento, ativos mais utilizados, frequência das sessões e observações.</p>
-          </div>
+          <h3 class="audience-card-title">Ativos, Frequências & Orientações</h3>
+          <p class="audience-card-desc">Reúne objetivos do tratamento, ativos mais utilizados, frequência recomendada das sessões, condutas práticas e observações importantes para cada caso.</p>
         </div>
       </div>
     </section>
 
-    <!-- 4. DETALHAMENTO DAS CONDIÇÕES COM CARDS & ÍCONES SVG (SEM EMOJIS) -->
+    <!-- 4. CONTEÚDO DETALHADO DO GUIA PRÁTICO EM CARDS VISUAIS -->
     <section class="audience-section section-spacing" style="padding-top: 10px;">
       <div class="section-header">
         <h2 class="section-title">O que você vai encontrar no <span class="hl-pink">Guia Prático</span></h2>
         <p class="section-subtitle">Orientações práticas para as principais alterações capilares da rotina clínica.</p>
       </div>
 
-      <!-- CARDS DE CONDIÇÕES CLÍNICAS -->
-      <div style="background-color: var(--branco); border-radius: 16px; padding: 20px 16px; border: 1px solid var(--cinza-borda); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(19, 38, 68, 0.04);">
-        <h3 style="font-size: 0.98rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-          <svg style="width: 20px; height: 20px; stroke: #178C8C;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          Condições clínicas abordadas no guia:
+      <!-- CARDS DAS CONDIÇÕES CLÍNICAS COBERTAS -->
+      <div style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 14px; text-align: center;">
+          📋 Orientações práticas para condições como:
         </h3>
 
-        <div class="conditions-visual-grid">
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="audience-grid">
+          <!-- Card 1: Alopecias & Quedas (Verde Sábio) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #E9F3ED; color: #5E8B75;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5E8B75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
             </div>
-            <span class="condition-pill-text">Alopecia Androgenética</span>
+            <h3 class="audience-card-title">Alopecias & Quedas Capilares</h3>
+            <p class="audience-card-desc">Protocolos e condutas para <strong>Alopecia Androgenética</strong>, <strong>Eflúvio Telógeno</strong>, <strong>Alopecia Areata</strong>, <strong>Queda Pós-Parto</strong> e <strong>Queda Pós-Covid</strong>.</p>
           </div>
 
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <!-- Card 2: Patologias do Couro (Roxo Suave) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #EFEBF5; color: #796DA6;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#796DA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
             </div>
-            <span class="condition-pill-text">Eflúvio Telógeno</span>
+            <h3 class="audience-card-title">Alterações & Patologias do Couro Cabeludo</h3>
+            <p class="audience-card-desc">Diretrizes de avaliação e conduta para <strong>Dermatite Seborreica</strong>, <strong>Psoríase do Couro Cabeludo</strong>, <strong>Caspa & Oleosidade Excessiva</strong> e <strong>Sensibilidade Cutânea</strong>.</p>
           </div>
 
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <!-- Card 3: Recuperação & Química (Ouro Âmbar) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #FAF1DA; color: #C88C30;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#C88C30" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
             </div>
-            <span class="condition-pill-text">Alopecia Areata</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Dermatite Seborreica</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Psoríase do Couro Cabeludo</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Caspa e Oleosidade</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Sensibilidade do Couro</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Queda Pós-Parto</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Queda Pós-Covid</span>
-          </div>
-
-          <div class="condition-pill-card">
-            <div class="condition-pill-icon">
-              <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="condition-pill-text">Danos Pós-Química</span>
+            <h3 class="audience-card-title">Danos Pós-Química & Outras Condições</h3>
+            <p class="audience-card-desc">Protocolos de recuperação intensiva para <strong>Danos Pós-Química</strong> e diversas outras alterações encontradas no atendimento profissional.</p>
           </div>
         </div>
+      </div>
 
-        <!-- ESTRUTURA INTERNA (CARDS COM ÍCONES SVG) -->
-        <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--azul-escuro); margin-top: 20px; margin-bottom: 10px; border-top: 1px solid var(--cinza-borda); padding-top: 16px; display: flex; align-items: center; gap: 6px;">
-          <svg style="width: 18px; height: 18px; stroke: #178C8C;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-          Em cada condição, você encontrará:
+      <!-- CARDS DA ESTRUTURA INTERNA (EM CADA CONDIÇÃO VOCÊ ENCONTRARÁ) -->
+      <div>
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 14px; text-align: center;">
+          📌 Em cada condição, você encontrará:
         </h3>
 
-        <div class="structure-cards-grid">
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        <div class="audience-grid">
+          <!-- Card 1: Objetivo & Avaliação (Rosa Destaque) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #FCE8EB; color: #D9536F;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#D9536F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>
+              </svg>
             </div>
-            <div class="structure-feature-title">Objetivo da conduta</div>
+            <h3 class="audience-card-title">Objetivo da Conduta & Avaliação Inicial</h3>
+            <p class="audience-card-desc">Definição clara do objetivo terapêutico e os pontos estratégicos da avaliação inicial em cada caso clínico.</p>
           </div>
 
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <!-- Card 2: Ativos & Frequência (Verde Sábio) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #E9F3ED; color: #5E8B75;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5E8B75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31L4.75 20.5a1 1 0 0 0 .85 1.5h12.8a1 1 0 0 0 .85-1.5L14 9.31V2z"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line>
+              </svg>
             </div>
-            <div class="structure-feature-title">Avaliação inicial</div>
+            <h3 class="audience-card-title">Ativos Utilizados & Frequência Recomendada</h3>
+            <p class="audience-card-desc">Mapeamento dos ativos cosméticos mais indicados e a periodicidade adequada dos atendimentos e sessões.</p>
           </div>
 
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.75 20.5a1 1 0 0 0 .85 1.5h12.8a1 1 0 0 0 .85-1.5L14 9.31V2z"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line></svg>
+          <!-- Card 3: Condutas & Observações (Roxo Suave) -->
+          <div class="audience-card fade-in-element visible">
+            <div class="audience-card-icon" style="background-color: #EFEBF5; color: #796DA6;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#796DA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
             </div>
-            <div class="structure-feature-title">Ativos utilizados</div>
-          </div>
-
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <div class="structure-feature-title">Frequência recomendada</div>
-          </div>
-
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            </div>
-            <div class="structure-feature-title">Condutas práticas</div>
-          </div>
-
-          <div class="structure-feature-card">
-            <div class="structure-feature-icon">
-              <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            </div>
-            <div class="structure-feature-title">Observações importantes</div>
+            <h3 class="audience-card-title">Condutas Práticas & Observações Importantes</h3>
+            <p class="audience-card-desc">Passo a passo das condutas no atendimento e os alertas essenciais para conduzir com segurança e máxima eficácia.</p>
           </div>
         </div>
+      </div>
 
-        <!-- DESTAQUE RESUMO -->
-        <div class="custom-callout">
-          <div class="custom-callout-icon">
-            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
-          </div>
-          <div class="custom-callout-text">
-            O complemento ideal para quem deseja ir além da identificação e saber exatamente qual caminho seguir em cada caso.
-          </div>
+      <!-- CARD DESTAQUE RESUMO -->
+      <div class="custom-callout-card">
+        <div class="custom-callout-icon">
+          <svg style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+        </div>
+        <div class="custom-callout-text">
+          O complemento ideal para quem deseja ir além da identificação e saber exatamente qual caminho seguir em cada caso.
         </div>
       </div>
     </section>
