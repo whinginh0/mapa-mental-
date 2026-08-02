@@ -40,114 +40,6 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Estilos Customizados para o Upsell */
-    .congratulations-banner {
-      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-      color: #FFFFFF;
-      padding: 16px 20px;
-      border-radius: 14px;
-      margin: 20px 16px 16px 16px;
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
-      text-align: center;
-    }
-    .congratulations-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .congratulations-text {
-      font-size: 0.86rem;
-      line-height: 1.5;
-      opacity: 0.96;
-    }
-
-    .conditions-card {
-      background-color: #FFFFFF;
-      border: 1px solid var(--cinza-borda, #E8E2D5);
-      border-radius: 16px;
-      padding: 20px 18px;
-      margin: 20px 16px;
-      box-shadow: 0 4px 15px rgba(19, 38, 68, 0.04);
-    }
-    .conditions-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--azul-escuro, #132644);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .conditions-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    @media (min-width: 400px) {
-      .conditions-list {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .condition-item {
-      font-size: 0.85rem;
-      color: var(--texto-escuro, #132644);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background-color: var(--fundo-pagina, #FAF6EE);
-      padding: 8px 12px;
-      border-radius: 8px;
-      border-left: 3px solid var(--teal-clinico, #178C8C);
-      font-weight: 600;
-    }
-
-    .structure-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .structure-item {
-      background: #F0F8F8;
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 0.82rem;
-      color: var(--azul-escuro, #132644);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .top-bar-upsell {
-      background-color: #132644;
-      color: #FFFFFF;
-      text-align: center;
-      padding: 12px 14px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-      border-bottom: 3px solid #178C8C;
-    }
-    .top-bar-upsell-title {
-      font-weight: 800;
-      font-size: 0.86rem;
-      letter-spacing: 0.3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-transform: uppercase;
-    }
-  </style>
 </head>
 
 <body>
@@ -156,96 +48,97 @@
 
   <div class="page-container">
 
-    <!-- 1. BARRINHA FIXA NO TOPO -->
-    <header class="top-bar-upsell">
-      <div class="top-bar-upsell-title">
-        <span>🔥 OFERTA EXCLUSIVA DE UPSELL • VÁLIDA APENAS NESTA PÁGINA</span>
+    <!-- 1. BARRA FIXA NO TOPO COM CRONÔMETRO -->
+    <header class="top-bar">
+      <div class="top-bar-content">
+        <span class="top-bar-label">Essa oferta expira em:</span>
+        <div class="top-bar-timer" id="timer-display" aria-label="Cronômetro regressivo da oferta">
+          <span class="timer-unit" id="timer-h">00</span>
+          <span class="timer-sep">:</span>
+          <span class="timer-unit" id="timer-m">14</span>
+          <span class="timer-sep">:</span>
+          <span class="timer-unit" id="timer-s">59</span>
+        </div>
       </div>
     </header>
 
-    <!-- 2. MENSAGEM DE PARABÉNS PELA COMPRA ANTERIOR -->
-    <div class="congratulations-banner">
-      <div class="congratulations-title">
-        🎉 PARABÉNS PELA SUA AQUISIÇÃO!
-      </div>
-      <p class="congratulations-text">
-        Seu acesso ao <strong>+100 Mapas Mentais Ilustrados para Saúde Capilar</strong> já foi enviado para o seu e-mail de compra! Mas antes de sair daqui, veja este complemento exclusivo:
-      </p>
+    <!-- 2. BOTE DE PARABÉNS PELA COMPRA DO ANTERIOR -->
+    <div style="background-color: #10B981; color: #FFFFFF; padding: 14px 18px; border-radius: 12px; margin: 16px 16px 0 16px; text-align: center; font-size: 0.88rem; font-weight: 600; line-height: 1.5; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);">
+      🎉 Parabens pela aquisição do Material +100 Mapas mentais ilustrados para saude capilar! Seu acesso ja chegou no seu e-mail de compra. mas antes de sair daqui olhe aqui abaixo:
     </div>
 
-    <!-- 3. HERO / TITULO DO UPSELL -->
-    <section class="hero-section" style="padding-top: 14px; padding-bottom: 20px; text-align: center;">
+    <!-- 3. HERO / TITULO DA NOVA OFERTA (GUIA PRÁTICO) -->
+    <section class="hero-section" style="padding-top: 20px;">
       <div style="margin-bottom: 12px;">
-        <span class="hero-badge" style="background-color: #E6F4F4; color: #178C8C; border: 1px solid #178C8C;">
-          <span class="live-dot" style="background-color: #178C8C;"></span> COMPLEMENTO PERFEITO
+        <span class="hero-badge">
+          <span class="live-dot"></span> COMPLEMENTO EXCLUSIVO • ACESSO IMEDIATO
         </span>
       </div>
 
-      <h1 class="hero-headline-1" style="font-size: 1.55rem; line-height: 1.25; margin-bottom: 12px;">
+      <h1 class="hero-headline-1">
         Espere! Complete sua coleção com o <span class="hl-pink">Guia Prático de Condutas em Saúde Capilar</span>
       </h1>
 
-      <p class="hero-headline-2" style="font-size: 0.96rem; margin-bottom: 18px; color: var(--texto-escuro, #132644); font-weight: 700;">
+      <p class="hero-headline-2" style="font-weight: 700; color: var(--azul-escuro);">
         Saiba exatamente o que fazer em cada situação clínica.
       </p>
 
-      <p style="font-size: 0.88rem; color: var(--texto-suave); margin-bottom: 20px; line-height: 1.6; padding: 0 10px;">
-        Depois de aprender os principais conteúdos da saúde capilar através dos mapas mentais, chegou a hora de dar o próximo passo. Com o <strong>Guia Prático de Condutas em Saúde Capilar</strong>, você terá um material desenvolvido para mostrar como conduzir as principais alterações capilares encontradas na rotina profissional, reunindo protocolos organizados, objetivos do tratamento, ativos mais utilizados, frequência das sessões, condutas recomendadas e observações importantes para cada situação.
+      <p style="font-size: 0.92rem; color: var(--texto-suave); margin-top: 14px; line-height: 1.6; text-align: center; padding: 0 4px;">
+        Depois de aprender os principais conteúdos da saúde capilar através dos mapas mentais, chegou a hora de dar o próximo passo.<br><br>
+        Com o <strong>Guia Prático de Condutas em Saúde Capilar</strong>, você terá um material desenvolvido para mostrar como conduzir as principais alterações capilares encontradas na rotina profissional, reunindo protocolos organizados, objetivos do tratamento, ativos mais utilizados, frequência das sessões, condutas recomendadas e observações importantes para cada situação.
       </p>
+    </section>
 
-      <!-- MOCKUP / ILUSTRAÇÃO DO GUIA PRÁTICO -->
-      <div class="hero-mockup-wrapper" style="margin-bottom: 12px;">
-        <img class="responsive-img hero-mockup-img"
-          src="https://i.ibb.co/KzzSfzfM/capa-saude-capilar-site-aproximada-sem-tarja.png"
-          alt="Guia Prático de Condutas em Saúde Capilar" width="500" height="375" style="max-width: 320px; width: 100%; height: auto; margin: 0 auto; display: block;">
+    <!-- 4. DETALHAMENTO DO CONTEÚDO DO GUIA PRÁTICO -->
+    <section class="audience-section section-spacing" style="padding-top: 10px;">
+      <div class="section-header">
+        <h2 class="section-title">O que você vai encontrar no <span class="hl-pink">Guia Prático</span></h2>
+        <p class="section-subtitle">Orientações práticas para as principais alterações capilares da rotina clínica.</p>
+      </div>
+
+      <div style="background-color: var(--branco); border-radius: 16px; padding: 20px 16px; border: 1px solid var(--cinza-borda); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(19, 38, 68, 0.04);">
+        <h3 style="font-size: 0.98rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 14px;">
+          Você encontrará orientações práticas para condições como:
+        </h3>
+
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Alopecia Androgenética</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Eflúvio Telógeno</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Alopecia Areata</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Dermatite Seborreica</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Psoríase do Couro Cabeludo</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Caspa e Oleosidade Excessiva</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Sensibilidade do Couro Cabeludo</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Queda Pós-Parto</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Queda Pós-Covid</li>
+          <li style="font-size: 0.88rem; color: var(--texto-escuro); font-weight: 600;"><span style="color: var(--ciano); font-weight: 900;">✔</span> Danos Pós-Química</li>
+          <li style="font-size: 0.88rem; color: var(--texto-suave); font-style: italic;"><span style="color: var(--ciano); font-weight: 900;">✔</span> E diversas outras alterações capilares.</li>
+        </ul>
+
+        <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--azul-escuro); margin-bottom: 12px; border-top: 1px solid var(--cinza-borda); padding-top: 14px;">
+          Em cada condição, você encontrará:
+        </h3>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;">
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">🎯 Objetivo da conduta</div>
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">🔍 Avaliação inicial</div>
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">🧪 Ativos utilizados</div>
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">📅 Frequência recomendada</div>
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">🛠️ Condutas práticas</div>
+          <div style="background-color: var(--fundo-pagina); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: var(--azul-escuro);">💡 Observações importantes</div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--azul-escuro); font-weight: 700; text-align: center; background: #E9F3ED; padding: 12px; border-radius: 8px;">
+          💡 O complemento ideal para quem deseja ir além da identificação e saber qual caminho seguir em cada caso.
+        </p>
       </div>
     </section>
 
-    <!-- 4. LISTA DE CONDIÇÕES CLÍNICAS COBERTAS -->
-    <div class="conditions-card">
-      <h3 class="conditions-title">
-        📋 Você encontrará orientações práticas para condições como:
-      </h3>
-
-      <ul class="conditions-list">
-        <li class="condition-item">✔ Alopecia Androgenética</li>
-        <li class="condition-item">✔ Eflúvio Telógeno</li>
-        <li class="condition-item">✔ Alopecia Areata</li>
-        <li class="condition-item">✔ Dermatite Seborreica</li>
-        <li class="condition-item">✔ Psoríase do Couro Cabeludo</li>
-        <li class="condition-item">✔ Caspa e Oleosidade Excessiva</li>
-        <li class="condition-item">✔ Sensibilidade do Couro Cabeludo</li>
-        <li class="condition-item">✔ Queda Pós-Parto</li>
-        <li class="condition-item">✔ Queda Pós-Covid</li>
-        <li class="condition-item">✔ Danos Pós-Química</li>
-      </ul>
-
-      <p style="font-size: 0.8rem; color: var(--texto-suave); font-style: italic; margin-top: 10px; text-align: center;">
-        ...E diversas outras alterações capilares da rotina clínica.
-      </p>
-
-      <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--azul-escuro); margin-top: 20px; margin-bottom: 10px; text-align: center;">
-        📌 Em cada condição, você encontrará:
-      </h4>
-
-      <div class="structure-grid">
-        <div class="structure-item">🎯 Objetivo da conduta</div>
-        <div class="structure-item">🔍 Avaliação inicial</div>
-        <div class="structure-item">🧪 Ativos utilizados</div>
-        <div class="structure-item">📅 Frequência recomendada</div>
-        <div class="structure-item">🛠️ Condutas práticas</div>
-        <div class="structure-item">💡 Observações importantes</div>
-      </div>
-
-      <div style="background-color: var(--fundo-pagina); border: 1px dashed var(--teal-clinico); border-radius: 10px; padding: 12px; margin-top: 18px; text-align: center; font-size: 0.85rem; color: var(--azul-escuro); font-weight: 700;">
-        💡 O complemento ideal para quem deseja ir além da identificação e saber exatamente qual caminho seguir em cada caso.
-      </div>
-    </div>
-
-    <!-- 5. CRONÔMETRO DE URGÊNCIA -->
-    <section style="text-align: center; background-color: var(--branco); border-radius: 16px; margin: 10px 16px 20px 16px; padding: 18px 14px; border: 1px solid rgba(23, 140, 140, 0.18); box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-      <h2 class="section-title" style="font-size: 1.1rem; margin-bottom: 4px;">Esta oferta especial de Upsell encerra em:</h2>
-      <p style="font-size: 0.82rem; color: var(--texto-suave); margin-bottom: 12px;">Garanta essa oportunidade única por valor promocional de adição.</p>
+    <!-- 5. BLOCO DE URGÊNCIA -->
+    <section class="section-spacing"
+      style="text-align: center; background-color: var(--branco); border-bottom: 1px solid rgba(23, 140, 140, 0.1);">
+      <h2 class="section-title">Condição especial por <span class="hl-pink">tempo limitado</span></h2>
+      <p style="font-size: 0.95rem; color: var(--texto-suave); margin-bottom: 16px;">Finalize seu acesso antes do encerramento desta condição.</p>
 
       <div class="plans-timer-container">
         <div class="plans-timer-card">
@@ -265,51 +158,50 @@
       </div>
     </section>
 
-    <!-- 6. SEÇÃO DE PLANO ÚNICO DE UPSELL (R$ 19,90) -->
-    <section class="plans-section section-spacing" id="planos" style="padding-top: 10px;">
+    <!-- 6. SEÇÃO DE PLANO ÚNICO (R$ 19,90) -->
+    <section class="plans-section section-spacing" id="planos">
       <div class="section-header">
         <p class="section-tag">OFERTA ÚNICA DE ADIÇÃO</p>
-        <h2 class="section-title">Adicione ao seu pedido por <span class="hl-pink">Valor Especial</span></h2>
-        <p class="section-subtitle">Pagamento único. Acesso vitalício e imediato.</p>
+        <h2 class="section-title">Adicione ao seu pedido por <span class="hl-pink">R$ 19,90</span></h2>
+        <p class="section-subtitle">Pagamento único. Sem mensalidades.</p>
       </div>
 
       <div class="plans-container" style="max-width: 440px; margin: 0 auto;">
 
-        <!-- PLANO ÚNICO DE UPSELL -->
+        <!-- PLANO ÚNICO GUIA PRÁTICO -->
         <div class="plan-card plan-card-featured fade-in-element visible">
           <span class="plan-badge">OFERTA DE UPSELL</span>
 
           <h3 class="plan-title">Guia Prático de Condutas em Saúde Capilar</h3>
-          <p class="plan-subheadline">Protocolos visuais, condutas e orientação clínica passo a passo</p>
+          <p class="plan-subheadline">Saiba exatamente o que fazer em cada situação clínica.</p>
 
-          <div class="plan-price-label">ADICIONE HOJE POR APENAS:</div>
+          <div class="plan-price-label">ACESSO IMEDIATO POR:</div>
           <div class="plan-price-row">
             <span class="price-currency">R$</span>
             <span class="price-val-main">19</span>
             <span class="price-val-cents">,90</span>
-            <span class="price-subtext">/ pagamento único</span>
+            <span class="price-subtext">/ Pagamento único</span>
           </div>
 
           <ul class="plan-features">
-            <li><span class="feat-check">✓</span> Guia Completo de Condutas Práticas em Saúde Capilar</li>
-            <li><span class="feat-check">✓</span> Protocolos para Alopecia, Eflúvio, Dermatite, Caspa e mais</li>
-            <li><span class="feat-check">✓</span> Objetivos, Avaliação Inicial e Ativos Utilizados</li>
-            <li><span class="feat-check">✓</span> Frequência das Sessões e Condutas Recomendadas</li>
-            <li><span class="feat-check">✓</span> Acesso Vitalício & Download em Alta Resolução (PDF HD)</li>
-            <li><span class="feat-check">✓</span> Envio imediato para o seu e-mail e WhatsApp</li>
+            <li>+100 Protocolos e condutas para alterações capilares</li>
+            <li>Acesso Vitalício & Imediato</li>
+            <li>Pagamento único</li>
+            <li>Acesso enviado através do e-mail utilizado na compra</li>
+            <li>Material 100% Digital em PDF HD</li>
           </ul>
 
-          <a href="https://ggcheckout.app/checkout/v5/Gspy0adWsbvxzKVNcAgm" class="btn btn-azul" style="margin-top: 16px; height: auto; min-height: 52px; padding: 14px 16px; font-size: 0.95rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-            Sim! Quero Adicionar o Guia Prático por R$ 19,90
+          <a href="https://ggcheckout.app/checkout/v5/Gspy0adWsbvxzKVNcAgm" class="btn btn-azul">
+            QUERO ADICIONAR O GUIA PRÁTICO (R$ 19,90)
           </a>
 
           <div
-            style="font-size: 0.78rem; color: var(--texto-suave); margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+            style="font-size: 0.78rem; color: var(--texto-suave); margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 4px;">
             <svg class="secure-lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               stroke-linecap="round" stroke-linejoin="round" style="width: 12px; height: 12px;">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>Pagamento 100% seguro • Adição com 1-Clique
+            </svg>Pagamento 100% seguro
           </div>
         </div>
 
@@ -325,8 +217,9 @@
       <h2 class="warranty-title"><span class="hl-yellow" style="color: inherit;">Sua Satisfação</span> é Prioridade</h2>
 
       <p class="warranty-text">
-        Se em até 7 dias você achar que o Guia Prático não agregou ao seu conhecimento profissional, <span class="hl-yellow"
-          style="color: inherit; font-weight: inherit;">devolvemos 100% do seu dinheiro</span>. Sem perguntas, sem burocracia.
+        Se em até 7 dias você não amar a experiência com o material, <span class="hl-yellow"
+          style="color: inherit; font-weight: inherit;">devolvemos 100% do seu dinheiro</span>. Sem perguntas, sem
+        burocracia.
       </p>
     </section>
 
@@ -344,43 +237,32 @@
           </button>
           <div class="faq-content">
             <div class="faq-content-inner">
-              O Guia Prático é 100% digital e será adicionado ao mesmo e-mail utilizado na compra dos Mapas Mentais. Você receberá o link de acesso imediato.
+              O Guia Prático é 100% digital. Após a confirmação do pagamento, o acesso é enviado para o e-mail utilizado na
+              compra. Você poderá consultar pelo celular, notebook ou computador e também poderá imprimir o material.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            O acesso é vitalício?
+            Por quanto tempo terei acesso?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-content">
             <div class="faq-content-inner">
-              Sim! O acesso é vitalício e você pode baixar o arquivo em PDF HD quantas vezes desejar para consultar no seu celular ou imprimir.
+              O acesso é vitalício. Após adquirir o material, você poderá consultar os conteúdos sempre que precisar.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            Preciso pagar mensalidade?
+            Como funciona a garantia?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-content">
             <div class="faq-content-inner">
-              Não. Trata-se de um pagamento único de R$ 19,90 sem qualquer cobrança futura ou assinatura.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            E se eu não gostar do material?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            <div class="faq-content-inner">
-              Você conta com a nossa garantia incondicional de 7 dias. Basta solicitar através do suporte e faremos a devolução total do seu dinheiro.
+              Você possui garantia incondicional de 7 dias. Caso deseje solicitar o reembolso dentro desse período, entre em contato e iremos devolver 100% do seu dinheiro.
             </div>
           </div>
         </div>
@@ -391,12 +273,13 @@
     <footer class="footer">
       <div style="margin-bottom: 20px; padding: 0 16px;">
         <a href="#planos" class="btn btn-azul" style="height: 48px; font-size: 0.95rem;">
-          SIM! QUERO ADICIONAR O GUIA PRÁTICO
+          QUERO ADICIONAR O GUIA PRÁTICO AGORA
         </a>
       </div>
 
       <p class="footer-copyright">
-        &copy; <span id="current-year"></span> Guia Prático de Condutas em Saúde Capilar. Todos os direitos reservados.
+        &copy; <span id="current-year"></span> Guia Prático de Condutas em Saúde Capilar. Todos os direitos
+        reservados.
       </p>
     </footer>
 
