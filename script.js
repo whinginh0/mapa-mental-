@@ -325,14 +325,14 @@ const initPage = () => {
       });
     };
 
-    // --- BACK REDIRECT INTEGRADO (SEM INTERFERIR NOS BOTÕES DA PÁGINA) ---
+    // --- BACK REDIRECT INTEGRADO E ROBUSTO (CAPTURA BOTÃO VOLTAR EM QUALQUER DISPOSITIVO) ---
     (function setupBackRedirect() {
       try {
         if (window.location.pathname.includes("back")) return;
 
         let allowNavigation = false;
 
-        // Intercepta TODOS os links de âncora (#planos, etc) na fase de captura
+        // Trata cliques na página para permitir rolagem suave em âncoras e navegação para checkout
         window.addEventListener("click", function (e) {
           const anchor = e.target.closest('a[href^="#"]');
           if (anchor) {
@@ -341,11 +341,9 @@ const initPage = () => {
               const targetEl = document.querySelector(targetId);
               if (targetEl) {
                 e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
                 allowNavigation = true;
                 targetEl.scrollIntoView({ behavior: "smooth" });
-                return false;
+                return;
               }
             }
           }
@@ -356,16 +354,23 @@ const initPage = () => {
           }
         }, true);
 
-        // Adiciona estado ao histórico para capturar o botão voltar
-        history.pushState({ isBackPage: true }, "", location.href);
-
-        window.onpopstate = function (event) {
-          if (!allowNavigation) {
-            window.location.href = "back-redirect.html";
-          } else {
-            allowNavigation = false;
-          }
+        // Adiciona estados no histórico para garantir o gatilho do botão Voltar
+        const pushBackState = () => {
+          try {
+            history.pushState({ page: "back-redirect" }, document.title, window.location.href);
+          } catch (err) {}
         };
+
+        pushBackState();
+        pushBackState();
+
+        window.addEventListener("popstate", function (event) {
+          if (!allowNavigation) {
+            pushBackState();
+            window.location.href = "back-redirect.html";
+          }
+          allowNavigation = false;
+        });
 
       } catch (e) {
         console.warn("Back redirect setup failed:", e);
